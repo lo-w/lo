@@ -7,8 +7,8 @@
 (defconst *linux* (eq system-type 'gnu/linux))
 (defconst *windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
 
+(defvar lo-fullscreen-p t "Check if fullscreen is on or off")
 (defvar lo-user (getenv (if *windows* "USERNAME" "USER")))
-
 (defvar lo-packages
   '(ace-window
     crux
