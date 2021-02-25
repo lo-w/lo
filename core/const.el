@@ -7,6 +7,9 @@
 (defconst *linux* (eq system-type 'gnu/linux))
 (defconst *windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
 
+(setq auto-save-list-file-prefix nil)
+(setq recentf-save-file (expand-file-name "recentf" lo-dir))
+
 (defvar lo-fullscreen-p t "Check if fullscreen is on or off")
 
 (defun lo-non-fullscreen ()
@@ -30,6 +33,7 @@
     (lo-fullscreen)))
 
 (defvar lo-user (getenv (if *windows* "USERNAME" "USER")))
+
 (defvar lo-packages
   '(ace-window
     crux
