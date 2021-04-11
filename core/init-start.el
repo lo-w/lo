@@ -1,11 +1,4 @@
-;; startup
-
-; customer
-(setq custom-file
-      (expand-file-name "custom.el" (concat user-emacs-directory "lo/mods/")))
-
-(when (file-exists-p custom-file)
-  (load-file custom-file))
+;;; startup
 
 ; Hide splash-screen and startup-message
 (setq inhibit-splash-screen t)
@@ -19,7 +12,10 @@
 (set-fringe-mode -1)
 (tooltip-mode -1)
 
-; GC setting
-(setq gc-cons-threshold most-positive-fixnum)
+; GC setting 50MB of allocated data (the default is on every 0.76MB)
+(setq gc-cons-threshold 50000000)
+
+;; warn when opening files bigger than 1000MB
+(setq large-file-warning-threshold 1000000000)
 
 (provide 'init-start)

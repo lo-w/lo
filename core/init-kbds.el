@@ -1,18 +1,20 @@
-;; kbd
+;;; kbds
 
-(use-package emacs :config (defalias 'yes-or-no-p 'y-or-n-p))
-(use-package crux
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(leaf crux
   :bind
   (("C-a" . crux-move-beginning-of-line)
+   ("C-<backspace>" . crux-kill-line-backwards)
    ("C-x ," . crux-find-user-init-file)
    ("C-c k" . crux-smart-kill-line)))
 
-(use-package hungry-delete
+(leaf hungry-delete
   :bind (("C-c DEL" . hungry-delete-backward)
          ("C-c d" . hungry-delete-forward)))
- 
-(use-package drag-stuff
+
+(leaf drag-stuff
   :bind (("<M-up>". drag-stuff-up)
          ("<M-down>" . drag-stuff-down)))
 
-(provide 'init-kbd)
+(provide 'init-kbds)
