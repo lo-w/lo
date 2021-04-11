@@ -3,7 +3,7 @@
 (leaf company
 ;  :diminish (company-mode " Cmp.")
 ;  :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
-  :hook (after-init . global-company-mode)
+  :hook (after-init-hook . global-company-mode)
   :config (setq company-dabbrev-code-everywhere t
                 company-dabbrev-code-modes t
                 company-dabbrev-code-other-buffers 'all
@@ -20,11 +20,9 @@
                 company-tooltip-flip-when-above t
                 company-tooltip-offset-display 'scrollbar
                 company-begin-commands '(self-insert-command))
-  (eval-after-load 'company
-    '(add-to-list 'company-backends
-                  '(company-abbrev company-yasnippet company-capf))))
-
-(global-company-mode 1)
+          (eval-after-load 'company
+                           '(add-to-list 'company-backends
+                           '(company-abbrev company-yasnippet company-capf))))
 
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)

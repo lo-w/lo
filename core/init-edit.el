@@ -13,6 +13,9 @@
 (global-whitespace-mode t)
 (delete-selection-mode 1)
 
+(global-hl-line-mode 1)
+(set-face-background hl-line-face "#F2F2F2")
+
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -23,5 +26,6 @@
 (setq undo-tree-history-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq undo-tree-auto-save-history t)
+
 
 (provide 'init-edit)

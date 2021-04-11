@@ -1,0 +1,5 @@
+* lo private emacs repo
+  this is private emacs setting, but feel free to pull if you want to try.
+
+* pkgs
+  this repo using leaf to manage all the pkgs instead of use-packages

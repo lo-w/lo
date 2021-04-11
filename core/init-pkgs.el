@@ -1,4 +1,7 @@
-;;; pkgs
+;;; package --- pkgs
+;;; Code:
+;;; Commentary:
+;;; pkgs.el
 
 (require 'package)
 
@@ -9,8 +12,9 @@
          ("http" . "www-proxy.ericsson.se:8080")
          ("https" . "www-proxy.ericsson.se:8080"))))
 
-(setq package-archives '(
-    ("melpa" . "https://melpa.org/packages/")))
+(setq package-archives '(("elpa" . "https://elpa.gnu.org/packages/")
+    ("melpa" . "https://melpa.org/packages/")
+    ("org"   . "https://orgmode.org/elpa/")))
 
 ;; set the pkgs dir to the relative path
 (setq package-user-dir (expand-file-name "elpa" lo-dir))
@@ -25,13 +29,14 @@
   (package-refresh-contents)
   (package-install 'leaf ))
 
-;      use-package-expand-minimally t
 ;      use-package-verbose t)
 
 (leaf leaf
   :custom ((leaf-defaults . '(:ensure t
+                              :require t
                               :leaf-defer t))))
 
+(leaf diminish)
 (leaf restart-emacs)
 
 (leaf which-key
@@ -40,8 +45,11 @@
 
 (leaf benchmark-init
   :init (benchmark-init/activate)
-  :hook (after-init . benchmark-init/deactivate))
+  :hook (after-init-hook . benchmark-init/deactivate))
 
 (require 'init-mods)
 
 (provide 'init-pkgs)
+
+;;; init-pkgs.el ends here
+

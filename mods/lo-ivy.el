@@ -1,9 +1,8 @@
 ;;; lo-ivy.el
 
 (leaf ivy
-  :hook (after-init . ivy-mode)
+  :hook (after-init-hook . ivy-mode)
   :config
-  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t
         ivy-initial-inputs-alist nil
         ivy-count-format "%d/%d "
@@ -21,7 +20,19 @@
   :after ivy
   :bind (("C-s" . swiper)
          ("C-r" . swiper-isearch-backward))
-  :config (setq swiper-action-recenter t
-                swiper-include-line-number-in-search t))
+  :config
+  (setq swiper-action-recenter t
+        swiper-include-line-number-in-search t))
+
+(leaf ivy-posframe
+  :hook (after-init-hook . ivy-posframe-mode)
+  :init
+  (setq ivy-posframe-display-functions-alist
+      '((swiper            . ivy-posframe-display-at-frame-center)
+        (complete-symbol   . ivy-posframe-display-at-point)
+        (counsel-M-x       . ivy-posframe-display-at-frame-center)
+        (counsel-find-file . ivy-posframe-display-at-frame-center)
+        (counsel-recentf   . ivy-posframe-display-at-frame-center)
+        (t                 . ivy-posframe-display-at-frame-center))))
 
 (provide 'lo-ivy)

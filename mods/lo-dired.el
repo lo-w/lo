@@ -1,6 +1,7 @@
 ;;; lo-dired.el
 
 
+;; we can using C-x C-j to open current dir
 (require 'dired-x)
 
 ;; set recrusive copy/del by default

@@ -48,8 +48,8 @@
 (setq auto-save-list-file-prefix nil)
 
 ;; set recentf
-(require 'recentf)
 (recentf-mode 1)
+(require 'recentf)
 (setq recentf-max-menu-item 10)
 (setq recentf-save-file (expand-file-name "recentf" lo-temp))
 
