@@ -1,5 +1,7 @@
-;;; kbds
-
+;;; kbds --- kbds
+;;; Code:
+;;; Commentary:
+;;; init-kbds.el
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -19,3 +21,5 @@
          ("<M-down>" . drag-stuff-down)))
 
 (provide 'init-kbds)
+
+;;; init-kbds.el ends here

@@ -1,3 +1,6 @@
+;;; comp --- comp
+;;; Code:
+;;; Commentary:
 ;;; lo-comp.el
 
 (leaf company
@@ -35,3 +38,5 @@
   :init (company-prescient-mode 1))
 
 (provide 'lo-comp)
+
+;;; lo-comp.el ends here

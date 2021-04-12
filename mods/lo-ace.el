@@ -1,3 +1,6 @@
+;;; ace --- ace
+;;; Code:
+;;; Commentary:
 ;;; lo-ace.el
 
 (leaf ace-window
@@ -5,3 +8,5 @@
   (("M-o" . ace-window)))
 
 (provide 'lo-ace)
+
+;;; lo-ace.el ends here

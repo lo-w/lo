@@ -1,3 +1,6 @@
+;;; flycheck --- flycheck
+;;; Code:
+;;; Commentary:
 ;;; lo-flycheck.el
 
 (leaf flycheck
@@ -9,3 +12,5 @@
  '(flycheck-python-pylint-executable "python"))
 
 (provide 'lo-flycheck)
+
+;;; lo-flycheck.el ends here

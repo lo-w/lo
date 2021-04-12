@@ -1,4 +1,7 @@
-;;; const
+;;; const --- const
+;;; Code:
+;;; Commentary:
+;;; const.el
 
 (when (version< emacs-version "25.1")
   (error "Emacs require version 25.1 or newer, but you're running %s" emacs-version))
@@ -47,5 +50,6 @@
 
 (setq auto-save-list-file-prefix nil)
 
-
 (provide 'const)
+
+;;; const.el ends here

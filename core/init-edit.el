@@ -1,4 +1,7 @@
-;;; edit
+;;; edit --- edit
+;;; Code:
+;;; Commentary:
+;;; init-edit.el
 
 ; system code setting
 (prefer-coding-system 'utf-8)
@@ -27,11 +30,6 @@
       `((".*" . ,temporary-file-directory)))
 (setq undo-tree-auto-save-history t)
 
-
-;(require 'recentf)
-;(recentf-mode t)
-;(setq recentf-max-menu-item 100)
-;(setq recentf-save-file (expand-file-name "recentf" lo-temp))
-;(add-to-list 'recentf-exclude (expand-file-name "recentf" lo-temp))
-
 (provide 'init-edit)
+
+;;; init-edit.el ends here

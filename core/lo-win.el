@@ -1,4 +1,8 @@
-;; windows
+;;; win --- load file when win
+;;; Code:
+;;; Commentary:
+;;; lo-win.el
+
 (leaf emacs
   :if (display-graphic-p)
   :config
@@ -12,3 +16,5 @@
 
 (lo-toggle-fullscreen)
 (provide 'lo-win)
+
+;;; lo-win.el ends here

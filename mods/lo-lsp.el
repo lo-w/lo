@@ -1,5 +1,7 @@
+;;; lsp --- lsp
+;;; Code:
+;;; Commentary:
 ;;; lo-lsp.el
-
 
 (leaf lsp-mode
   :init
@@ -19,14 +21,27 @@
         lsp-print-io nil
         lsp-print-performance nil
         read-process-output-max (* 1024 1024))
-  :commands (lsp lsp-deferred)
+
+  :commands
+  (lsp lsp-deferred)
+
   :hook
-  (python-mode-hook lsp-deferred))
+  ((lsp-mode-hook lsp-enable-which-key-integration)
+   (go-mode-hook lsp-deferred)
+   (java-mode-hook lsp-deferred)
+   (js-mode-hook lsp-deferred)
+   (python-mode-hook lsp-deferred)))
 
 ;  :config
 ;  (leaf lsp-clients
 ;    :ensure nil
 ;    :defun (lsp-format-buffer lsp-organize-imports)))
 
+(leaf lsp-ui
+  :after lsp-mode
+  :commands lsp-ui-mode)
+
 
 (provide 'lo-lsp)
+
+;;; lo-lsp.el ends here

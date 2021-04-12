@@ -1,4 +1,8 @@
-;;; ui
+;;; ui --- ui
+;;; Code:
+;;; Commentary:
+;;; init-ui.el
+
 (leaf gruvbox-theme
   :init (load-theme 'gruvbox-dark-soft t))
 
@@ -12,3 +16,5 @@
   (load-file custom-file))
 
 (provide 'init-ui)
+
+;;; init-ui.el ends here

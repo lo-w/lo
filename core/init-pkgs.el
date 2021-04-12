@@ -1,7 +1,7 @@
-;;; package --- pkgs
+;;; pkgs --- pkgs
 ;;; Code:
 ;;; Commentary:
-;;; pkgs.el
+;;; init-pkgs.el
 
 (require 'package)
 
@@ -29,8 +29,7 @@
   (package-refresh-contents)
   (package-install 'leaf ))
 
-;      use-package-verbose t)
-
+; leaf defaults settings
 (leaf leaf
   :custom ((leaf-defaults . '(:ensure t
                               :require t
@@ -50,14 +49,31 @@
 ;; set recentf
 (leaf recentf
   :leaf-defer nil
-  :config 
-  (setq recentf-max-menu-item 100
-        recentf-save-file (expand-file-name "recentf" lo-temp))
-  (add-to-list 'recentf-exclude (expand-file-name "recentf" lo-temp)))
+  :config
+  (setq recentf-max-menu-item 10
+        recentf-save-file (expand-file-name "recentf" lo-temp)
+        recentf-exclude '("recentf\\'"
+                          "COMMIT_EDITMSG\\'"
+                          ".*-autoloads\\.el\\'"
+                          "[/\\]\\.elpa/")))
+
+(leaf projectile
+;  :diminish (projectile-mode " Proj.")
+  :hook (after-init-hook projectile-mode)
+  :bind ("C-c p" . projectile-command-map))
+
+;; [built-in] paren mode
+(leaf paren
+  :ensure nil
+  :config (show-paren-mode 1))
+
+;; [built-in] electric-pair
+(leaf electric
+  :ensure nil
+  :hook ((after-init-hook . electric-indent-mode)
+         (prog-mode-hook . electric-pair-mode)))
 
 (require 'init-mods)
-
 (provide 'init-pkgs)
 
 ;;; init-pkgs.el ends here
-

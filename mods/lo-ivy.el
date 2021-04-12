@@ -1,3 +1,6 @@
+;;; ivy --- ivy
+;;; Code:
+;;; Commentary:
 ;;; lo-ivy.el
 
 (leaf ivy
@@ -24,15 +27,17 @@
   (setq swiper-action-recenter t
         swiper-include-line-number-in-search t))
 
-(leaf ivy-posframe
-  :hook (after-init-hook . ivy-posframe-mode)
-  :init
-  (setq ivy-posframe-display-functions-alist
-      '((swiper            . ivy-posframe-display-at-frame-center)
-        (complete-symbol   . ivy-posframe-display-at-point)
-        (counsel-M-x       . ivy-posframe-display-at-frame-center)
-        (counsel-find-file . ivy-posframe-display-at-frame-center)
-        (counsel-recentf   . ivy-posframe-display-at-frame-center)
-        (t                 . ivy-posframe-display-at-frame-center))))
+;(leaf ivy-posframe
+;  :hook (after-init-hook . ivy-posframe-mode)
+;  :init
+;  (setq ivy-posframe-display-functions-alist
+;      '((swiper            . ivy-posframe-display-at-frame-center)
+;        (complete-symbol   . ivy-posframe-display-at-point)
+;        (counsel-M-x       . ivy-posframe-display-at-frame-center)
+;        (counsel-find-file . ivy-posframe-display-at-frame-center)
+;        (counsel-recentf   . ivy-posframe-display-at-frame-center)
+;        (t                 . ivy-posframe-display-at-frame-center))))
 
 (provide 'lo-ivy)
+
+;;; lo-ivy.el ends here

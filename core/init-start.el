@@ -1,4 +1,7 @@
-;;; startup
+;;; start --- start
+;;; Code:
+;;; Commentary:
+;;; init-start.el
 
 ; Hide splash-screen and startup-message
 (setq inhibit-splash-screen t)
@@ -19,3 +22,5 @@
 (setq large-file-warning-threshold 1000000000)
 
 (provide 'init-start)
+
+;;; init-start.el ends here

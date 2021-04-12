@@ -1,4 +1,9 @@
-;; load file when mac os
+;;; mac --- load file when mac
+;;; Code:
+;;; Commentary:
+;;; lo-mac.el
+
+
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'none)
 
@@ -12,3 +17,5 @@
 (global-set-key (kbd "F12") 'lo-toggle-fullscreen)
 
 (provide 'lo-mac)
+
+;;; lo-mac.el ends here
