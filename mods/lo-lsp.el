@@ -21,7 +21,7 @@
         read-process-output-max (* 1024 1024))
   :commands (lsp lsp-deferred)
   :hook
-  (python-mode-hook . lsp-deferred))
+  (python-mode-hook lsp-deferred))
 
 ;  :config
 ;  (leaf lsp-clients

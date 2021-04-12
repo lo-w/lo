@@ -10,9 +10,9 @@
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 4)            ;; but maintain correct appearance
 
-(global-whitespace-mode t)
 (delete-selection-mode 1)
 
+(global-whitespace-mode t)
 (global-hl-line-mode 1)
 (set-face-background hl-line-face "#F2F2F2")
 
@@ -27,5 +27,11 @@
       `((".*" . ,temporary-file-directory)))
 (setq undo-tree-auto-save-history t)
 
+
+;(require 'recentf)
+;(recentf-mode t)
+;(setq recentf-max-menu-item 100)
+;(setq recentf-save-file (expand-file-name "recentf" lo-temp))
+;(add-to-list 'recentf-exclude (expand-file-name "recentf" lo-temp))
 
 (provide 'init-edit)

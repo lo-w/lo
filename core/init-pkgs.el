@@ -47,6 +47,14 @@
   :init (benchmark-init/activate)
   :hook (after-init-hook . benchmark-init/deactivate))
 
+;; set recentf
+(leaf recentf
+  :leaf-defer nil
+  :config 
+  (setq recentf-max-menu-item 100
+        recentf-save-file (expand-file-name "recentf" lo-temp))
+  (add-to-list 'recentf-exclude (expand-file-name "recentf" lo-temp)))
+
 (require 'init-mods)
 
 (provide 'init-pkgs)
