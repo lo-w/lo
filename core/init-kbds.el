@@ -5,6 +5,10 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; global key-binding settings for comment (jetbrains style)
+(global-set-key (kbd "C-/") 'comment-line)
+(global-set-key (kbd "C-?") 'comment-or-uncomment-region)
+
 (leaf crux
   :bind
   (("C-a" . crux-move-beginning-of-line)

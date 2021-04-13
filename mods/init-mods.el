@@ -5,8 +5,9 @@
 
 (require 'lo-build)
 (require 'lo-ace)
+(require 'lo-check)
 (require 'lo-comp)
-(require 'lo-flycheck)
+(require 'lo-dash)
 (require 'lo-lsp)
 (require 'lo-ivy)
 (require 'lo-org)

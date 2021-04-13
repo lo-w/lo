@@ -18,7 +18,8 @@
 (leaf recentf
   :leaf-defer nil
   :config
-  (setq recentf-max-menu-item 10
+  (setq recentf-max-menu-item 20
+        recentf-max-saved-items 25
         recentf-save-file (expand-file-name "recentf" lo-temp)
         recentf-exclude '("recentf\\'"
                           "COMMIT_EDITMSG\\'"
