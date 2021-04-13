@@ -4,12 +4,12 @@
 ;;; lo-flycheck.el
 
 (leaf flycheck
-  :hook (prog-mode-hook . flycheck-mode))
-
-(custom-set-variables
- '(flycheck-python-flake8-executable "python")
- '(flycheck-python-pycompile-executable "python")
- '(flycheck-python-pylint-executable "python"))
+  :hook (prog-mode-hook . flycheck-mode)
+  :bind (("M-n" . flycheck-next-error)
+         ("M-p" . flycheck-previous-error))
+  :custom ((flycheck-python-flake8-executable . "python")
+           (flycheck-python-pycompile-executable . "python")
+           (flycheck-python-pylint-executable . "python")))
 
 (provide 'lo-flycheck)
 

@@ -21,16 +21,15 @@
         lsp-print-io nil
         lsp-print-performance nil
         read-process-output-max (* 1024 1024))
-
   :commands
   (lsp lsp-deferred)
-
   :hook
-  ((lsp-mode-hook lsp-enable-which-key-integration)
-   (go-mode-hook lsp-deferred)
-   (java-mode-hook lsp-deferred)
-   (js-mode-hook lsp-deferred)
-   (python-mode-hook lsp-deferred)))
+  ((lsp-mode lsp-enable-which-key-integration)
+   (go-mode lsp-deferred)
+   (java-mode lsp-deferred)
+   (json-mode lsp-deferred)
+   (js-mode lsp-deferred)
+   (python-mode lsp-deferred)))
 
 ;  :config
 ;  (leaf lsp-clients
@@ -40,7 +39,6 @@
 (leaf lsp-ui
   :after lsp-mode
   :commands lsp-ui-mode)
-
 
 (provide 'lo-lsp)
 

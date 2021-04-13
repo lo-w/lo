@@ -3,9 +3,9 @@
 ;;; Commentary:
 ;;; init-mods.el
 
+(require 'lo-build)
 (require 'lo-ace)
 (require 'lo-comp)
-(require 'lo-dired)
 (require 'lo-flycheck)
 (require 'lo-lsp)
 (require 'lo-ivy)
