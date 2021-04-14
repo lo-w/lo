@@ -9,13 +9,13 @@
                 (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
 
 (leaf dashboard
-  :hook
-  ((after-init-hook . dashboard-refresh-buffer)
-   (dashboard-mode-hook . lo/dashboard-banner))
   :config
   (setq dashboard-startup-banner 'logo)
   (setq dashboard-set-navigator t)
-  (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
+  :hook
+  ((after-init-hook . dashboard-refresh-buffer)
+   (dashboard-mode-hook . lo/dashboard-banner)))
 
 (setq dashboard-items '((recents . 6)
                         (bookmarks . 5)

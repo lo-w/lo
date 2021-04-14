@@ -12,7 +12,7 @@
 (require 'init-edit)
 (require 'init-pkgs)
 (require 'init-kbds)
-;(require 'init-ui)
+(require 'init-ui)
 
 (when *win* (require 'lo-win))
 (when *lin* (require 'lo-lin))

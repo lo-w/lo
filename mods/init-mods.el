@@ -4,12 +4,12 @@
 ;;; init-mods.el
 
 (require 'lo-build)
-(require 'lo-ace)
+(require 'lo-3pp)
 (require 'lo-check)
 (require 'lo-comp)
 (require 'lo-dash)
-(require 'lo-lsp)
 (require 'lo-ivy)
+(require 'lo-lsp)
 (require 'lo-org)
 
 (provide 'init-mods)

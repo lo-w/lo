@@ -14,7 +14,15 @@
 (defvar lo-mods (expand-file-name "mods" lo-dir))
 (defvar lo-temp (expand-file-name "temp" lo-dir))
 
-(add-to-list 'load-path lo-mods)
+; customer
+(setq custom-file
+      (expand-file-name "custom.el" lo-temp))
+
+;; Settings for backup files
+(setq make-backup-files nil
+      auto-save-default nil)
+
+(setq auto-save-list-file-prefix nil)
 
 (defvar lo-fullscreen-p t "Check if fullscreen is on or off")
 
@@ -39,16 +47,6 @@
   (if lo-fullscreen-p
       (lo-non-fullscreen)
     (lo-fullscreen)))
-
-; customer
-(setq custom-file
-      (expand-file-name "custom.el" lo-temp))
-
-;; Settings for backup files
-(setq make-backup-files nil
-      auto-save-default nil)
-
-(setq auto-save-list-file-prefix nil)
 
 (provide 'const)
 

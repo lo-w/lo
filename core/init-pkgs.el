@@ -27,22 +27,9 @@
                               :require t
                               :leaf-defer t))))
 
-(leaf restart-emacs)
-(leaf diminish)
-(leaf which-key
-  :leaf-defer nil
-  :config (which-key-mode))
-
-(leaf benchmark-init
-  :init (benchmark-init/activate)
-  :hook (after-init-hook . benchmark-init/deactivate))
-
-(leaf projectile
-;  :diminish (projectile-mode " Proj.")
-  :hook (after-init-hook projectile-mode)
-  :bind ("C-c p" . projectile-command-map))
-
+(add-to-list 'load-path lo-mods)
 (require 'init-mods)
+
 (provide 'init-pkgs)
 
 ;;; init-pkgs.el ends here

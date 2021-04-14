@@ -12,8 +12,10 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(set-fringe-mode -1)
 (tooltip-mode -1)
+
+;; next line
+;(set-fringe-mode -1)
 
 ; GC setting 50MB of allocated data (the default is on every 0.76MB)
 (setq gc-cons-threshold 50000000)
