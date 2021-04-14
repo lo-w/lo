@@ -22,6 +22,7 @@
         recentf-max-saved-items 25
         recentf-save-file (expand-file-name "recentf" lo-temp)
         recentf-exclude '("recentf\\'"
+                          "log"
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"
                           "[/\\]\\.elpa/")))

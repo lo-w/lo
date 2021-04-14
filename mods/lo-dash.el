@@ -14,7 +14,6 @@
    (dashboard-mode-hook . lo/dashboard-banner))
   :config
   (setq dashboard-startup-banner 'logo)
-  (setq dashboard-init-info "Welcome to my github: https://github.com/lo-w")
   (setq dashboard-set-navigator t)
   (dashboard-setup-startup-hook))
 
