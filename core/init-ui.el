@@ -3,8 +3,6 @@
 ;;; Commentary:
 ;;; init-ui.el
 
-(leaf gruvbox-theme
-  :init (load-theme 'gruvbox-dark-soft t))
 
 (leaf smart-mode-line
   :init
@@ -12,9 +10,19 @@
     sml/theme 'respectful)
   (sml/setup))
 
+(leaf emacs
+  :init (load-theme 'wheatgrass t))
+
+;; (leaf gruvbox-theme
+;;  :init (load-theme 'gruvbox-dark-soft t))
+
+;; (leaf emacs
+;;  :init (load-theme 'tango-dark t))
+
 ;(setq whitespace-line-column 200)
 ;(global-whitespace-mode t)
 (global-hl-line-mode 1)
+(set-face-background hl-line-face "gray13")
 
 ;; transparent background
 ;;(set-background-color "gray")
