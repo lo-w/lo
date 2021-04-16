@@ -23,6 +23,7 @@
         recentf-save-file (expand-file-name "recentf" lo-temp)
         recentf-exclude '("recentf\\'"
                           "log"
+                          "etc"
                           "lisp"
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"

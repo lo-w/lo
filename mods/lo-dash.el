@@ -15,10 +15,15 @@
   (dashboard-setup-startup-hook)
 
   (setq dashboard-center-content t
+        dashboard-page-separator "\n\n"
         dashboard-set-navigator t
-        dashboard-show-shortcuts nil
-        dashboard-startup-banner 'logo
-        mode-line-format nil)
+        dashboard-set-heading-icons t
+        dashboard-set-file-icons t
+        dashboard-set-init-info nil
+        dashboard--section-starts 'recents
+        dashboard-set-footer t
+        dashboard-show-shortcuts nil)
+        ;; dashboard-startup-banner 'logo
 
   (setq dashboard-items '((recents . 6)
                           (projects . 5)
@@ -27,21 +32,24 @@
   (setq dashboard-navigator-buttons
         `(;; line1
           ((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
-           "Homepage"
-           "Browse homepage"
-           (lambda (&rest _) (browse-url "homepage")))
-           ("★" "Star" "Show stars" (lambda (&rest _) (show-stars)) warning)
-           ("?" "" "?/h" #'show-help nil "<" ">"))))
+            "Homepage"
+            "Browse homepage"
+            (lambda (&rest _) (browse-url "https://github.com/lo-w/")))
 
-  
-  (setq dashboard-footer-icon (cond ((icons-displayable-p)
-                                     (all-the-icons-faicon "heart"
-                                                           :height 1.1
-                                                           :v-adjust -0.05
-                                                           :face 'error))
-                                    ((char-displayable-p ?❤) "❤ ")
-                                    (t (propertize ">" 'face 'dashboard-footer))))
+           (,(all-the-icons-material "restore" :height 1.35 :v-adjust -0.24)
+            "Restore"
+            "Restore previous session"
+            (lambda (&rest _) (restore-previous-session)))
 
+           (,(all-the-icons-faicon "question" :height 1.2 :v-adjust -0.1)
+            "/h"
+            "help (?/h)"
+            (lambda (&rest _) (help-with-tutorial))))))
+
+  (setq dashboard-footer-icon (all-the-icons-faicon "heart"
+                                                    :height 1.1
+                                                    :v-adjust -0.05
+                                                    :face 'font-lock-keyword-face))
   :hook
   ((after-init-hook . dashboard-refresh-buffer)
    (dashboard-mode-hook . lo/dashboard-banner)))

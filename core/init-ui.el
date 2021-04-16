@@ -10,11 +10,11 @@
     sml/theme 'respectful)
   (sml/setup))
 
-(leaf emacs
-  :init (load-theme 'wheatgrass t))
+;; (leaf emacs
+;;   :init (load-theme 'wheatgrass t))
 
-;; (leaf gruvbox-theme
-;;  :init (load-theme 'gruvbox-dark-soft t))
+(leaf gruvbox-theme
+ :init (load-theme 'gruvbox-dark-soft t))
 
 ;; (leaf emacs
 ;;  :init (load-theme 'tango-dark t))
