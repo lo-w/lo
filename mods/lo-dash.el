@@ -3,6 +3,8 @@
 ;;; Commentary:
 ;;; lo-dash.el
 
+(leaf all-the-icons)
+
 (defun lo/dashboard-banner ()
   (setq dashboard-banner-logo-title
         (format "Emacs ready in %.2f seconds with %d garbage collections."
@@ -18,29 +20,27 @@
         dashboard-startup-banner 'logo
         mode-line-format nil)
 
-  (setq dashboard-items '((recents . 10)
+  (setq dashboard-items '((recents . 6)
                           (projects . 5)
                           (bookmarks . 5)))
 
-  ;; (setq dashboard-navigator-buttons
-  ;;       `(;; line1
-  ;;         ((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
-  ;;          "Homepage"
-  ;;          "Browse homepage"
-  ;;          (lambda (&rest _) (browse-url "homepage")))
-  ;;         ("★" "Star" "Show stars" (lambda (&rest _) (show-stars)) warning)
-  ;;         ("?" "" "?/h" #'show-help nil "<" ">"))
-  ;;          ;; line 2
-  ;;         ((,(all-the-icons-faicon "linkedin" :height 1.1 :v-adjust 0.0)
-  ;;           "Linkedin"
-  ;;           ""
-  ;;           (lambda (&rest _) (browse-url "homepage")))
-  ;;          ("⚑" nil "Show flags" (lambda (&rest _) (message "flag")) error))))
+  (setq dashboard-navigator-buttons
+        `(;; line1
+          ((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
+           "Homepage"
+           "Browse homepage"
+           (lambda (&rest _) (browse-url "homepage")))
+           ("★" "Star" "Show stars" (lambda (&rest _) (show-stars)) warning)
+           ("?" "" "?/h" #'show-help nil "<" ">"))))
 
-  ;; (setq dashboard-footer-icon (all-the-icons-octicon "dashboard"
-  ;;       :height 1.1
-  ;;       :v-adjust -0.05
-  ;;       :face 'font-lock-keyword-face))
+  
+  (setq dashboard-footer-icon (cond ((icons-displayable-p)
+                                     (all-the-icons-faicon "heart"
+                                                           :height 1.1
+                                                           :v-adjust -0.05
+                                                           :face 'error))
+                                    ((char-displayable-p ?❤) "❤ ")
+                                    (t (propertize ">" 'face 'dashboard-footer))))
 
   :hook
   ((after-init-hook . dashboard-refresh-buffer)
