@@ -37,6 +37,21 @@
 (leaf company-prescient
   :init (company-prescient-mode 1))
 
+;; Settings for yasnippet
+(leaf yasnippet
+  :config
+  (setq yas-snippet-dirs '())
+  (add-to-list 'yas-snippet-dirs
+               (concat (file-name-as-directory lo-temp) "snippets"))
+  (leaf yasnippet-snippets
+    :after yasnippet)
+  (leaf auto-yasnippet
+    :bind (("C-o" . aya-open-line)
+           ("H-w" . aya-create)
+           ("H-y" . aya-expand)))
+  :hook
+  (after-init-hook . yas-global-mode))
+
 (provide 'lo-comp)
 
 ;;; lo-comp.el ends here

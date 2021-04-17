@@ -48,6 +48,17 @@
    ("j" . dired-next-line)
    ("k" . dired-previous-line)))
 
+(leaf eww
+  :ensure nil
+  :config
+  (setq url-cookie-file (concat (file-name-as-directory lo-temp) "url/cookies")
+        url-configuration-directory (concat (file-name-as-directory lo-temp) "url")))
+
+(leaf eshell
+  :ensure nil
+  :config
+  (setq eshell-directory-name (concat (file-name-as-directory lo-temp) "eshell")))
+
 (provide 'lo-build)
 
 ;;; lo-build.el ends here
