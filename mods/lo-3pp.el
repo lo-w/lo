@@ -26,9 +26,7 @@
   :bind
   (("M-o" . ace-window)))
 
-;; (leaf evil
-;;   :hook
-;;   (prog-mode-hook . evil-mode))
+(leaf magit)
 
 (provide 'lo-3pp)
 

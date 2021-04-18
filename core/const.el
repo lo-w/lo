@@ -48,6 +48,18 @@
       (lo-non-fullscreen)
     (lo-fullscreen)))
 
+(defun lo-init ()
+  (require 'init-start)
+  (require 'init-edit)
+  (require 'init-pkgs)
+  (require 'init-kbds)
+  (require 'init-ui))
+
+(defun lo-dump ()
+  (global-font-lock-mode)
+  (transient-mark-mode)
+  (set-frame-parameter (selected-frame) 'alpha '(85 55)))
+
 (provide 'const)
 
 ;;; const.el ends here
