@@ -18,4 +18,4 @@ set D_HOME=%cd%
 cd  ../../emacs*/bin
 set E_HOME=%cd%
 
-%E_HOME%\emacs.exe --batch -Q -l %D_HOME%\dump.el
+%E_HOME%\emacs.exe --batch -l %D_HOME%\dump.el
