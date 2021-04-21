@@ -40,74 +40,92 @@
 (leaf nyan-mode
   :hook (after-init-hook . nyan-mode))
 
-;; (setq
-;;   mode-line-format
-;;   (list
-;;   ;; the buffer name; the file name as a tool tip
-;;   "   "
-;;   '(:eval (propertize "%b " 'face 'font-lock-keyword-face
-;;                       'help-echo (buffer-file-name)))
+(setq mode-line-align-left
+  '(""
+    ;; the buffer name; the file name as a tool tip
+    "%3 "
+    (:eval (propertize "%b " 'face 'font-lock-keyword-face
+                       'help-echo (buffer-file-name)))
 
-;;   ;; line and column
-;;   " " ;; '%02' to set to 2 chars at least; prevents flickering
-;;   (propertize "%05l" 'face 'font-lock-type-face) ","
-;;   ;; (propertize "%02c" 'face 'font-lock-type-face)
-;;   " "
+    ;; git branch
+    (vc-mode vc-mode)
+    
+    ;; line and column
+    "" ;; '%02' to set to 2 chars at least; prevents flickering
+    (:eval (propertize "%05l" 'face 'font-lock-type-face)) ","
+    (:eval (propertize "%03c" 'face 'font-lock-type-face))
+    ;; (:eval (format "%%l/%d : %%c " (line-number-at-pos (point-max))))
+    " "
 
-;;   ;; relative position, size of file
-;;   "["
-;;   (propertize "%p" 'face 'font-lock-constant-face)
-;;   "/"
-;;   (propertize "%I" 'face 'font-lock-constant-face)
-;;   "] "
+    ;; relative position, size of file
+    "["
+    (:eval (propertize "%p" 'face 'font-lock-constant-face))
+    "/"
+    (:eval (propertize "%I" 'face 'font-lock-constant-face))
+    "] "
 
-;;   ;; the current major mode for the buffer.
-;;   "["
-;;   '(:eval (propertize (simple-major-mode-name) 'face 'font-lock-string-face
-;;                       'help-echo buffer-file-coding-system))
-;;   "] "
+    "[" ;; insert vs overwrite mode, input-method in a tooltip
+    (:eval (propertize (if overwrite-mode "Ovr" "Ins")
+                       'face 'font-lock-preprocessor-face
+                       'help-echo (concat "Buffer is in "
+                                          (if overwrite-mode "overwrite" "insert") " mode")))
 
-;;   "[" ;; insert vs overwrite mode, input-method in a tooltip
-;;   '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
-;;                       'face 'font-lock-preprocessor-face
-;;                       'help-echo (concat "Buffer is in "
-;;                                          (if overwrite-mode "overwrite" "insert") " mode")))
+    ;; was this buffer modified since the last save?
+    (:eval (when (buffer-modified-p)
+             (concat ", "  (propertize "Mod"
+                                       'face 'font-lock-warning-face
+                                       'help-echo "Buffer has been modified"))))
 
-;;   ;; was this buffer modified since the last save?
-;;   '(:eval (when (buffer-modified-p)
-;;             (concat ", "  (propertize "Mod"
-;;                                      'face 'font-lock-warning-face
-;;                                      'help-echo "Buffer has been modified"))))
+    ;; is this buffer read-only?
+    (:eval (when buffer-read-only
+             (concat ","  (propertize "RO"
+                                      'face 'font-lock-type-face
+                                      'help-echo "Buffer is read-only"))))
+    "] "
+  ))
 
-;;   ;; is this buffer read-only?
-;;   '(:eval (when buffer-read-only
-;;             (concat ","  (propertize "RO"
-;;                                      'face 'font-lock-type-face
-;;                                      'help-echo "Buffer is read-only"))))
-;;   "] "
+(setq mode-line-align-middle
+      '(""
+       ;; the current major mode for the buffer.
+       "["
+       (:eval (propertize (simple-major-mode-name) 'face 'font-lock-string-face
+                           'help-echo buffer-file-coding-system))
+       "]"
+       ;; minor-modes
+       ;; minor-mode-alist  ;; list of minor modes
+       ;; (:eval (when (bound-and-true-p lsp-mode)  (lsp-modeline-diagnostics-scope)))
+       (:eval (when (bound-and-true-p flymake-mode)  (flymake--mode-line-format)))
+       
+       "%2 "
+       ;; add the time, with the date and the emacs uptime in the tooltip
+       (:eval (propertize (format-time-string "%H:%M")
+                           'help-echo
+                           (concat (format-time-string "%c; ")
+                                   (emacs-uptime "Uptime:%hh"))))
+       " "
+       ))
 
-;;   ;; evil state
-;;   '(:eval (evil-generate-mode-line-tag evil-state))
+(setq mode-line-align-right
+      '(""
+        ;; mode-line-misc-info
+        ;; nyan mode
+        "["
+        (:eval (when nyan-mode (list (nyan-create))))
+        ;; '(:eval nyan-mode)
+        "] "
+        ;; end ---
+        ))
 
-;;   " "
-;;   ;; add the time, with the date and the emacs uptime in the tooltip
-;;   '(:eval (propertize (format-time-string "%H:%M")
-;;                       'help-echo
-;;                       (concat (format-time-string "%c; ")
-;;                               (emacs-uptime "Uptime:%hh"))))
-;;   "  "
-
-;;   ;; nyan mode
-;;   "["
-;;   '(:eval (when nyan-mode (list (nyan-create))))
-;;   ;; '(:eval nyan-mode)
-;;   "] "
-
-;;   " "
-;;   ;; i don't want to see minor-modes; but if you want, uncomment this:
-;;   ;; minor-mode-alist  ;; list of minor modes
-;;   ;; "%-" ;; fill with '-'
-;;   ))
+(setq-default mode-line-format
+              (list
+               mode-line-align-left
+               '(:eval (mode-line-fill-center 'mode-line
+                                              (reserve-left/middle)))
+               mode-line-align-middle
+               '(:eval
+                 (mode-line-fill-right 'mode-line
+                                       (reserve-middle/right)))
+               mode-line-align-right))
 
 ;(setq whitespace-line-column 200)
 ;(global-whitespace-mode t)
