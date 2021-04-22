@@ -59,6 +59,10 @@
   :config
   (setq eshell-directory-name (concat (file-name-as-directory lo-temp) "eshell")))
 
+(leaf simple
+  :ensure nil
+  :hook (before-save-hook . delete-trailing-whitespace))
+
 (provide 'lo-build)
 
 ;;; lo-build.el ends here
