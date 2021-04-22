@@ -19,6 +19,9 @@
 ;; (leaf emacs
 ;;  :init (load-theme 'tango-dark t))
 
+(leaf unicode-fonts
+  :hook
+  (after-init-hook . unicode-fonts-setup))
 
 (defun simple-major-mode-name ()
   "Return simplifyed major mode name"
