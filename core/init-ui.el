@@ -23,7 +23,7 @@
   :hook
   (after-init-hook . unicode-fonts-setup))
 
-(defun simple-major-mode-name ()
+(defun simple-major-mode-name()
   "Return simplifyed major mode name"
   (let* ((major-name (format-mode-line "%m"))
          (replace-table '(Emacs-Lisp "𝝀"
@@ -31,9 +31,9 @@
                                      Shell ">"
                                      Makrdown "𝓜"
                                      GFM "𝓜"
-                                     Go "𝓖"
+                                     Javascript-IDE "𝓙𝓢"
                                      Java "𝓙𝓐𝓥𝓐"
-                                     Javascript "𝓙𝓢"
+                                     Go "𝓖"
                                      Org "𝒪"
                                      Text "𝓣"
                                      Fundamental "𝓕"))
@@ -41,6 +41,10 @@
     (if replace-name replace-name major-name)))
 
 (leaf nyan-mode
+  :init
+  ;; (setq nyan-animate-nyancat t)
+  ;; (setq nyan-wavy-trail t)
+  ;; (setq nyan-bar-length 56)
   :hook (after-init-hook . nyan-mode))
 
 (setq mode-line-align-left
@@ -49,7 +53,6 @@
     "%3 "
     (:eval (propertize "%b " 'face 'font-lock-keyword-face
                        'help-echo (buffer-file-name)))
-
     ;; git branch
     (vc-mode vc-mode)
     
@@ -72,39 +75,39 @@
                        'face 'font-lock-preprocessor-face
                        'help-echo (concat "Buffer is in "
                                           (if overwrite-mode "overwrite" "insert") " mode")))
-
     ;; was this buffer modified since the last save?
     (:eval (when (buffer-modified-p)
              (concat ", "  (propertize "Mod"
                                        'face 'font-lock-warning-face
                                        'help-echo "Buffer has been modified"))))
-
     ;; is this buffer read-only?
     (:eval (when buffer-read-only
-             (concat ","  (propertize "RO"
+             (concat ", "  (propertize "RO"
                                       'face 'font-lock-type-face
                                       'help-echo "Buffer is read-only"))))
     "] "
+
+    ;; add the time, with the date and the emacs uptime in the tooltip
+    (:eval (propertize (format-time-string "%H:%M")
+                       'help-echo
+                       (concat (format-time-string "%c; ")
+                               (emacs-uptime "Uptime:%hh"))))
+    ""
   ))
 
 (setq mode-line-align-middle
       '(""
        ;; the current major mode for the buffer.
        "["
-       (:eval (propertize (simple-major-mode-name) 'face 'font-lock-string-face
-                           'help-echo buffer-file-coding-system))
+       (:eval (propertize (simple-major-mode-name)
+                          'face
+                          'font-lock-string-face
+                          'help-echo buffer-file-coding-system))
        "]"
        ;; minor-modes
        ;; minor-mode-alist  ;; list of minor modes
        ;; (:eval (when (bound-and-true-p lsp-mode)  (lsp-modeline-diagnostics-scope)))
        (:eval (when (bound-and-true-p flymake-mode)  (flymake--mode-line-format)))
-       
-       "%2 "
-       ;; add the time, with the date and the emacs uptime in the tooltip
-       (:eval (propertize (format-time-string "%H:%M")
-                           'help-echo
-                           (concat (format-time-string "%c; ")
-                                   (emacs-uptime "Uptime:%hh"))))
        " "
        ))
 
@@ -122,12 +125,9 @@
 (setq-default mode-line-format
               (list
                mode-line-align-left
-               '(:eval (mode-line-fill-center 'mode-line
-                                              (reserve-left/middle)))
+               '(:eval (mode-line-fill-center 'mode-line (reserve-left/middle)))
                mode-line-align-middle
-               '(:eval
-                 (mode-line-fill-right 'mode-line
-                                       (reserve-middle/right)))
+               '(:eval (mode-line-fill-right 'mode-line (reserve-middle/right)))
                mode-line-align-right))
 
 ;(setq whitespace-line-column 200)

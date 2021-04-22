@@ -11,6 +11,7 @@
 (require 'lo-ivy)
 (require 'lo-lsp)
 (require 'lo-org)
+(require 'lo-prog)
 
 (provide 'init-mods)
 
