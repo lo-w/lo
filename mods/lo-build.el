@@ -27,7 +27,7 @@
                           "lisp"
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"
-                          "[/\\]\\.elpa/")))
+                          "elpa.*")))
 
 ;; [built-in] dired-x
 ;; we can using C-x C-j to open current dir

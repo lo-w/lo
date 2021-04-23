@@ -12,9 +12,12 @@
 
 (leaf dashboard
   :config
-  ;; (dashboard-setup-startup-hook)
+  (dashboard-setup-startup-hook)
+  (setq dashboard-path-max-length 5)
   (setq dashboard-center-content t
         dashboard-page-separator "\n\n"
+
+        ;; dashboard-path-style truncate-beginning
         dashboard-set-navigator t
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
@@ -46,6 +49,8 @@
                                                     :height 1.1
                                                     :v-adjust -0.05
                                                     :face 'font-lock-keyword-face))
+  ;; :custom ((dashboard-path-max-length . 20))
+  ;; (dashboard-path-style . truncate-beginning))
 
   :hook
   ((after-init-hook . dashboard-refresh-buffer)
