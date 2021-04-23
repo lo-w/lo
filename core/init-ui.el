@@ -51,11 +51,13 @@
   '(""
     ;; the buffer name; the file name as a tool tip
     "%3 "
-    (:eval (propertize "%b " 'face 'font-lock-keyword-face
+    (:eval (propertize "%b "
+                       'face
+                       '(:foreground "red")  ;;font-lock-keyword-face
                        'help-echo (buffer-file-name)))
     ;; git branch
     (vc-mode vc-mode)
-    
+
     ;; line and column
     "" ;; '%02' to set to 2 chars at least; prevents flickering
     (:eval (propertize "%05l" 'face 'font-lock-type-face)) ","
@@ -72,19 +74,22 @@
 
     "[" ;; insert vs overwrite mode, input-method in a tooltip
     (:eval (propertize (if overwrite-mode "Ovr" "Ins")
-                       'face 'font-lock-preprocessor-face
+                       'face
+                       'font-lock-preprocessor-face
                        'help-echo (concat "Buffer is in "
                                           (if overwrite-mode "overwrite" "insert") " mode")))
     ;; was this buffer modified since the last save?
     (:eval (when (buffer-modified-p)
              (concat ", "  (propertize "Mod"
-                                       'face 'font-lock-warning-face
+                                       'face
+                                       'font-lock-warning-face
                                        'help-echo "Buffer has been modified"))))
     ;; is this buffer read-only?
     (:eval (when buffer-read-only
              (concat ", "  (propertize "RO"
-                                      'face 'font-lock-type-face
-                                      'help-echo "Buffer is read-only"))))
+                                       'face
+                                       'font-lock-type-face
+                                       'help-echo "Buffer is read-only"))))
     "] "
 
     ;; add the time, with the date and the emacs uptime in the tooltip
@@ -109,16 +114,16 @@
        ;; (:eval (when (bound-and-true-p lsp-mode)  (lsp-modeline-diagnostics-scope)))
        (:eval (when (bound-and-true-p flymake-mode)  (flymake--mode-line-format)))
        " "
+       ;; mode-line-misc-info
+       ;; nyan mode
+       "["
+       (:eval (when nyan-mode (list (nyan-create))))
+       ;; '(:eval nyan-mode)
+       "] "
        ))
 
 (setq mode-line-align-right
       '(""
-        ;; mode-line-misc-info
-        ;; nyan mode
-        "["
-        (:eval (when nyan-mode (list (nyan-create))))
-        ;; '(:eval nyan-mode)
-        "] "
         ;; end ---
         ))
 
@@ -130,13 +135,14 @@
                '(:eval (mode-line-fill-right 'mode-line (reserve-middle/right)))
                mode-line-align-right))
 
+;; (set-face-background 'mode-line "#AAAAAA")
+
 ;(setq whitespace-line-column 200)
 ;(global-whitespace-mode t)
 (global-hl-line-mode 1)
 (set-face-background hl-line-face "gray13")
 
 ;; transparent background
-;;(set-background-color "gray")
 (set-frame-parameter (selected-frame) 'alpha '(85 55))
 
 (when (file-exists-p custom-file)

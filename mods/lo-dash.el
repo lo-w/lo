@@ -13,11 +13,10 @@
 (leaf dashboard
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-path-max-length 5)
   (setq dashboard-center-content t
         dashboard-page-separator "\n\n"
-
-        ;; dashboard-path-style truncate-beginning
+        dashboard-path-max-length 30
+        dashboard-path-style 'truncate-beginning
         dashboard-set-navigator t
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
@@ -25,7 +24,6 @@
         dashboard-set-footer t
         dashboard-show-shortcuts nil
         ;; dashboard-startup-banner 'logo
-
         dashboard-items '((recents . 6)
                           (projects . 5)
                           (bookmarks . 5))
@@ -49,13 +47,20 @@
                                                     :height 1.1
                                                     :v-adjust -0.05
                                                     :face 'font-lock-keyword-face))
-  ;; :custom ((dashboard-path-max-length . 20))
-  ;; (dashboard-path-style . truncate-beginning))
 
   :hook
   ((after-init-hook . dashboard-refresh-buffer)
-   ;; (dashboard-refresh-buffer-hook . dashboard-jump-to-recent-files)
+   ;; (dashboard-jump-to-recent-files-hook . dashboard-refresh-buffer)
    (dashboard-mode-hook . lo/dashboard-banner)))
+
+;; (leaf dashboard-jump-to-recent-files
+;;   :ensure nil
+;;   :hook dashboard-refresh-buffer-hook)
+
+;; (add-hook 'dashboard-refresh-buffer-hook
+;;           (lambda ()
+;;             (search-forward "re")))
+
 
 (provide 'lo-dash)
 

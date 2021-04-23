@@ -48,7 +48,7 @@
       (lo-non-fullscreen)
     (lo-fullscreen)))
 
-;; (defconst RIGHT_PADDING 1)
+(defconst RIGHT_PADDING 1)
 
 (defun reserve-left/middle ()
   (/ (length (format-mode-line mode-line-align-middle)) 2))
