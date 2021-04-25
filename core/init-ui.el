@@ -110,11 +110,10 @@
                           'help-echo buffer-file-coding-system))
        "]"
        ;; minor-modes
-       ;; minor-mode-alist  ;; list of minor modes
+       ;; list of minor modes
        ;; (:eval (when (bound-and-true-p lsp-mode)  (lsp-modeline-diagnostics-scope)))
        (:eval (when (bound-and-true-p flymake-mode)  (flymake--mode-line-format)))
        " "
-       ;; mode-line-misc-info
        ;; nyan mode
        "["
        (:eval (when nyan-mode (list (nyan-create))))
@@ -137,8 +136,8 @@
 
 ;; (set-face-background 'mode-line "#AAAAAA")
 
-;(setq whitespace-line-column 200)
-;(global-whitespace-mode t)
+;; (setq whitespace-line-column 200)
+;; (global-whitespace-mode t)
 (global-hl-line-mode 1)
 (set-face-background hl-line-face "gray13")
 

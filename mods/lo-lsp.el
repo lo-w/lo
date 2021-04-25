@@ -36,9 +36,12 @@
 ;    :ensure nil
 ;    :defun (lsp-format-buffer lsp-organize-imports)))
 
-(leaf lsp-ui
-  :after lsp-mode
-  :commands lsp-ui-mode)
+(leaf lsp-ui :after lsp-mode :commands lsp-ui-mode)
+(leaf lsp-ivy :commands lsp-ivy-workspace-symbol)
+(leaf lsp-treemacs :commands lsp-treemacs-errors-list)
+
+(leaf helm-lsp :after lsp-mode :commands helm-lsp-workspace-symbol)
+(leaf dap-mode)
 
 (provide 'lo-lsp)
 

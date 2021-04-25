@@ -24,8 +24,9 @@
                     diminish restart-emacs which-key benchmark-init projectile ace-window magit 
                     smartparens rainbow-delimiters highlight-parentheses
                     company company-prescient yasnippet yasnippet-snippets auto-yasnippet
+                    all-the-icons ;dashboard
                     ivy counsel swiper
-                    lsp-mode lsp-ui
+                    lsp-mode lsp-ui lsp-ivy lsp-treemacs helm-lsp dap-mode
                     org org-bullets
                     unicode-fonts smart-mode-line gruvbox-theme doom-themes))
   (require package))
@@ -35,10 +36,9 @@
 (require 'init-edit)
 (require 'lo-build)
 (require 'lo-3pp)
-(require 'lo-check)
 (require 'lo-comp)
+;; (require 'lo-dash)
 (require 'lo-ivy)
-
 (require 'lo-lsp)
 (require 'lo-org)
 (require 'init-kbds)

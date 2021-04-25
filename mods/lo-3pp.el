@@ -37,7 +37,7 @@
 
 (leaf neotree
   :bind
-  ("C-c C-b" . neotree-toggle))
+  ("C-c b" . neotree-toggle))
 
 
 (provide 'lo-3pp)
