@@ -6,6 +6,13 @@
 (leaf diminish)
 (leaf restart-emacs)
 
+;; Settings for highlight parentheses
+(leaf highlight-parentheses
+  :hook (prog-mode-hook . highlight-parentheses-mode))
+
+(leaf rainbow-delimiters
+  :hook (prog-mode-hook . rainbow-delimiters-mode))
+
 (leaf which-key
   :leaf-defer nil
   :config (which-key-mode))
@@ -27,6 +34,11 @@
   (("M-o" . ace-window)))
 
 (leaf magit)
+
+(leaf neotree
+  :bind
+  ("C-c C-b" . neotree-toggle))
+
 
 (provide 'lo-3pp)
 

@@ -48,20 +48,30 @@
    ("j" . dired-next-line)
    ("k" . dired-previous-line)))
 
+;; [built-in] Enable flymake on default, which is built in emacs
+(leaf flymake
+  :ensure nil
+  :hook (prog-mode-hook . flymake-mode)
+  :bind (("M-n" . flymake-goto-next-error)
+         ("M-p" . flymake-goto-prev-error)))
+
+;; [built-in] auto remove the useless white spaces
+(leaf simple
+  :ensure nil
+  :hook (before-save-hook . delete-trailing-whitespace))
+
+;; [built-in] set eww dir
 (leaf eww
   :ensure nil
   :config
   (setq url-cookie-file (concat (file-name-as-directory lo-temp) "url/cookies")
         url-configuration-directory (concat (file-name-as-directory lo-temp) "url")))
 
+;; [built-in] set eshell dir
 (leaf eshell
   :ensure nil
   :config
   (setq eshell-directory-name (concat (file-name-as-directory lo-temp) "eshell")))
-
-(leaf simple
-  :ensure nil
-  :hook (before-save-hook . delete-trailing-whitespace))
 
 (provide 'lo-build)
 

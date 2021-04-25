@@ -41,7 +41,7 @@
            (,(all-the-icons-faicon "question" :height 1.2 :v-adjust -0.1)
             "/h"
             "help (?/h)"
-            (lambda (&rest _) (help-with-tutorial)))))
+            (lambda (&rest _) (help-for-help)))))
 
         dashboard-footer-icon (all-the-icons-faicon "heart"
                                                     :height 1.1
