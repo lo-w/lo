@@ -19,16 +19,15 @@
 (add-to-list 'load-path lo-mods)
 
 (dolist (package '( leaf
-                    paren electric recentf dired dired-x eww eshell
                     crux drag-stuff hungry-delete
-                    smartparens rainbow-delimiters highlight-parentheses 
-                    diminish restart-emacs which-key benchmark-init projectile ace-window magit flycheck
+                    paren electric recentf dired dired-x eww eshell simple flycheck
+                    diminish restart-emacs which-key benchmark-init projectile ace-window magit 
+                    smartparens rainbow-delimiters highlight-parentheses
                     company company-prescient yasnippet yasnippet-snippets auto-yasnippet
-                    all-the-icons dashboard
                     ivy counsel swiper
                     lsp-mode lsp-ui
                     org org-bullets
-                    smart-mode-line gruvbox-theme doom-themes))
+                    unicode-fonts smart-mode-line gruvbox-theme doom-themes))
   (require package))
 
 (require 'const)

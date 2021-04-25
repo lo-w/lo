@@ -14,6 +14,7 @@
   (("C-a" . crux-move-beginning-of-line)
    ("C-<backspace>" . crux-kill-line-backwards)
    ("C-x ," . crux-find-user-init-file)
+   ("C-c s" . crux-swap-windows)
    ("C-c k" . crux-smart-kill-line)))
 
 (leaf hungry-delete
