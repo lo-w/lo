@@ -50,6 +50,7 @@
 
   :hook
   ((after-init-hook . dashboard-refresh-buffer)
+   ;; (dashboard-refresh-buffer-hook . lo/dashboard-go-recents)
    ;; (dashboard-jump-to-recent-files-hook . dashboard-refresh-buffer)
    (dashboard-mode-hook . lo/dashboard-banner)))
 
