@@ -22,7 +22,6 @@
   :hook (after-init-hook . benchmark-init/deactivate))
 
 (leaf projectile
-;  :diminish (projectile-mode " Proj.")
   :hook (after-init-hook projectile-mode)
   :bind ("C-x p" . projectile-command-map)
   :config
@@ -38,7 +37,6 @@
 (leaf neotree
   :bind
   ("C-c b" . neotree-toggle))
-
 
 (provide 'lo-3pp)
 

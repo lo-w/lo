@@ -32,7 +32,7 @@
                                      Makrdown "𝓜"
                                      GFM "𝓜"
                                      Javascript-IDE "𝓙𝓢"
-                                     Java "𝓙𝓐𝓥𝓐"
+                                     Java//l "𝓙𝓐𝓥𝓐"
                                      Go "𝓖"
                                      Org "𝒪"
                                      Text "𝓣"
@@ -97,7 +97,7 @@
                        'help-echo
                        (concat (format-time-string "%c; ")
                                (emacs-uptime "Uptime:%hh"))))
-    ""
+    " "
   ))
 
 (setq mode-line-align-middle
@@ -110,9 +110,7 @@
                           'help-echo buffer-file-coding-system))
        "]"
        ;; minor-modes
-       ;; list of minor modes
-       ;; (:eval (when (bound-and-true-p lsp-mode)  (lsp-modeline-diagnostics-scope)))
-       (:eval (when (bound-and-true-p flymake-mode)  (flymake--mode-line-format)))
+       (:eval minor-mode-alist)
        " "
        ;; nyan mode
        "["

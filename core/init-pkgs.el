@@ -26,9 +26,27 @@
   :custom ((leaf-defaults . '(:ensure t
                               :require t
                               :leaf-defer t))))
+(leaf leaf-keywords
+    :config
+    (leaf diminish)
+    (leaf-keywords-init))
 
 (add-to-list 'load-path lo-mods)
 (require 'init-mods)
+
+;; hide some minor modes
+(leaf leaf
+  :diminish
+  auto-revert-mode
+  abbrev-mode
+  company-mode
+  eldoc-mode
+  highlight-parentheses-mode
+  ivy-mode
+  page-break-lines-mode
+  projectile-mode
+  which-key-mode
+  yas-minor-mode)
 
 (provide 'init-pkgs)
 

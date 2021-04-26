@@ -4,7 +4,6 @@
 ;;; lo-comp.el
 
 (leaf company
-;  :diminish (company-mode " Cmp.")
 ;  :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :hook (after-init-hook . global-company-mode)
   :config (setq company-dabbrev-code-everywhere t
