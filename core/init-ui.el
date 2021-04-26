@@ -27,7 +27,7 @@
   "Return simplifyed major mode name"
   (let* ((major-name (format-mode-line "%m"))
          (replace-table '(Emacs-Lisp "𝝀"
-                                     Python "𝝅"
+                                     Py "𝝅"
                                      Shell ">"
                                      Makrdown "𝓜"
                                      GFM "𝓜"

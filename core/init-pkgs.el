@@ -43,6 +43,7 @@
   eldoc-mode
   highlight-parentheses-mode
   ivy-mode
+  outline
   page-break-lines-mode
   projectile-mode
   which-key-mode

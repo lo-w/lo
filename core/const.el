@@ -18,6 +18,9 @@
 (setq custom-file
       (expand-file-name "custom.el" lo-temp))
 
+;; hide cl pkg warning
+(setq byte-compile-warnings '(cl-functions))
+
 ;; Settings for backup files
 (setq make-backup-files nil
       auto-save-default nil)

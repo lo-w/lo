@@ -22,7 +22,26 @@
 ;; (leaf java-mode)
 
 ;; python
-;; (leaf python-mode)
+(leaf python-mode
+  :ensure nil
+  :init
+  (setq python-shell-interprete "python3"))
+
+(defvar python--tools '("python-language-server[all]"
+                        "black"
+                        "isort")
+  "Modules for Python development")
+
+(setq-default python-indent-offset 4
+              python-indent-guess-indent-offset-verbose nil)
+
+;; Use black to format the Python code
+(leaf blacken
+  :hook ((python-mode . blacken-mode)))
+
+;; Sort the pytho imports
+(leaf py-isort
+  :init (setq python-sort-imports-on-save t))
 
 (provide 'lo-prog)
 
