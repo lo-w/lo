@@ -26,12 +26,12 @@
   :commands
   (lsp lsp-deferred)
   :hook
-  ((lsp-mode lsp-enable-which-key-integration)
-   (go-mode lsp-deferred)
-   (java-mode lsp-deferred)
-   (json-mode lsp-deferred)
-   (js-mode lsp-deferred)
-   (python-mode lsp-deferred)))
+  ((lsp-mode-hook . lsp-enable-which-key-integration)
+   (go-mode-hook . lsp-deferred)
+   (java-mode-hook . lsp-deferred)
+   (json-mode-hook . lsp-deferred)
+   (js-mode-hook . lsp-deferred)
+   (python-mode-hook . lsp-deferred)))
 
 (leaf lsp-ui
   :hook
