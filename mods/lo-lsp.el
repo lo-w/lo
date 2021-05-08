@@ -12,9 +12,11 @@
         lsp-enable-snippet t
         lsp-enable-indentation t
         lsp-enable-on-type-formatting t
-        lsp-idle-delay 0.500
+        lsp-idle-delay 0.1
         lsp-keep-workspace-alive nil
         lsp-keymap-prefix "C-c l"
+        lsp-log-io nil
+        lsp-minimum-prefix-length 2
         lsp-modeline-diagnostics-enable t
         lsp-modeline-diagnostics-scope :workspace
         lsp-trace nil
@@ -34,6 +36,12 @@
    (python-mode-hook . lsp-deferred)))
 
 (leaf lsp-ui
+  :init
+  (setq lsp-prefer-flymake t)
+  ;;       lsp-ui-doc-enable nil
+  ;;       lsp-ui-imenu-enable nil
+  ;;       lsp-ui-sideline-enable nil
+  ;;       lsp-enable-symbol-highlighting nil)
   :hook
   (lsp-mode-hook . lsp-ui-mode)
   (python-mode-hook . flymake-mode))

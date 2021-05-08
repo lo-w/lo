@@ -6,3 +6,4 @@ elpa
 server
 transient
 *lsp-session*
+*dap*

@@ -59,7 +59,7 @@
     (vc-mode vc-mode)
 
     ;; line and column
-    "" ;; '%02' to set to 2 chars at least; prevents flickering
+    "" ;; '%05' to set to 5 chars at least; prevents flickering
     (:eval (propertize "%05l" 'face 'font-lock-type-face)) ","
     (:eval (propertize "%03c" 'face 'font-lock-type-face))
     ;; (:eval (format "%%l/%d : %%c " (line-number-at-pos (point-max))))
@@ -108,14 +108,14 @@
                           'face
                           'font-lock-string-face
                           'help-echo buffer-file-coding-system))
-       "]"
+       "] "
        ;; minor-modes
        (:eval minor-mode-alist)
-       " "
+
        ;; nyan mode
        "["
        (:eval (when nyan-mode (list (nyan-create))))
-       ;; '(:eval nyan-mode)
+
        "] "
        ))
 
