@@ -23,7 +23,6 @@
 
 ;; python
 (leaf python-mode
-  :ensure nil
   :init
   (setq python-shell-interprete "python3"))
 
