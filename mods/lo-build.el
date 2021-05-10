@@ -11,8 +11,15 @@
 ;; [built-in] electric-pair
 (leaf electric
   :ensure nil
+  :config
+  (defun disable-electric-pair ()
+    "wrap electric pairs in org mode."
+    (add-function :before-until electric-pair-inhibit-predicate
+		          (lambda (c) (eq c ?<)))
+    (electric-pair-local-mode))
   :hook ((after-init-hook . electric-indent-mode)
-         (prog-mode-hook . electric-pair-mode)))
+         (prog-mode-hook . electric-pair-mode)
+         (org-mode-hook . disable-electric-pair)))
 
 ;; [built-in] recentf
 (leaf recentf
