@@ -3,8 +3,6 @@
 ;;; Commentary:
 ;;; lo-lsp.el
 
-(setq lsp-clients-python-command (concat (getenv "PY37_HOME") "\\Scripts\\pyls"))
-
 (leaf lsp-mode
   :init
   (setq lsp-auto-guess-root t
