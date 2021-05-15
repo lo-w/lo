@@ -8,12 +8,14 @@
   (setq lsp-auto-guess-root t
         lsp-completion-provider :capf
         lsp-diagnostic-package :none
+
         lsp-enable-snippet t
         lsp-enable-folding nil
         lsp-enable-indentation t
         lsp-enable-on-type-formatting t
         lsp-enable-completion-at-point nil
         lsp-enable-symbol-highlighting nil
+        lsp-eldoc-hook nil
         lsp-idle-delay 0.1
         lsp-keep-workspace-alive nil
         lsp-keymap-prefix "C-c l"
@@ -26,7 +28,10 @@
         lsp-prefer-flymake t
         lsp-print-io nil
         lsp-print-performance nil
-        lsp--on-change-timer 20
+        lsp-pyls-disable-warning t
+        lsp-signature-auto-activate nil
+
+        lsp--on-change-timer 5
         read-process-output-max (* 1024 1024))
   :commands
   (lsp lsp-deferred)
@@ -44,6 +49,7 @@
         lsp-ui-sideline-enable nil
         lsp-ui-imenu-enable nil
         lsp-ui-doc-enable t
+        lsp-ui-doc-position 'at-point
         lsp-ui-doc-show-with-cursor t)
   :hook
   (lsp-mode-hook . lsp-ui-mode)
