@@ -47,6 +47,7 @@
   outline-minor-mode
   page-break-lines-mode
   projectile-mode
+  smartparens-mode
   which-key-mode
   yas-minor-mode)
 

@@ -3,12 +3,25 @@
 ;;; Commentary:
 ;;; lo-3pp.el
 
-(leaf diminish)
 (leaf restart-emacs)
 
 ;; Settings for highlight parentheses
 (leaf highlight-parentheses
   :hook (prog-mode-hook . highlight-parentheses-mode))
+
+(leaf smartparens
+  :bind
+  ("M-n" . sp-forward-sexp)
+  ("M-p" . sp-backward-sexp)
+  ("C-)" . sp-forward-slurp-sexp)
+  ("C-(" . sp-backward-slurp-sexp)
+  ("M-)" . sp-forward-barf-sexp)
+  ("M-(" . sp-backward-barf-sexp)
+  ("C-S-s" . sp-splice-sexp)
+  ("C-M-<backspace>" . backward-kill-sexp)
+  :config
+  (sp-pair "'" nil :actions :rem)
+  (smartparens-global-mode t))
 
 (leaf rainbow-delimiters
   :hook (prog-mode-hook . rainbow-delimiters-mode))
@@ -37,6 +50,21 @@
 (leaf neotree
   :bind
   ("C-c b" . neotree-toggle))
+
+(leaf keyfreq
+  :init
+  (setq keyfreq-excluded-commands
+        '(forward-char
+          backward-char
+          forward-word
+          backward-word
+          previous-line
+          next-file
+          newline)
+        keyfreq-file (expand-file-name ".emacs.keyfreq" lo-temp))
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
 
 (provide 'lo-3pp)
 

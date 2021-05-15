@@ -20,8 +20,8 @@
 
 (dolist (package '( leaf
                     crux drag-stuff hungry-delete
-                    paren electric recentf dired dired-x eww eshell simple flymake
-                    diminish restart-emacs which-key benchmark-init projectile ace-window magit 
+                    paren recentf dired dired-x eww eshell simple flymake
+                    diminish restart-emacs which-key benchmark-init projectile ace-window magit
                     smartparens rainbow-delimiters highlight-parentheses
                     company company-prescient yasnippet yasnippet-snippets auto-yasnippet
                     all-the-icons ;dashboard

@@ -20,8 +20,8 @@
 ; GC setting 50MB of allocated data (the default is on every 0.76MB)
 (setq gc-cons-threshold 50000000)
 
-;; warn when opening files bigger than 1000MB
-(setq large-file-warning-threshold 1000000000)
+;; warn when opening files bigger than 200MB
+(setq large-file-warning-threshold 200000000)
 
 (provide 'init-start)
 

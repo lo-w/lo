@@ -7,9 +7,13 @@
   :init
   (setq lsp-auto-guess-root t
         lsp-completion-provider :capf
+        lsp-diagnostic-package :none
         lsp-enable-snippet t
+        lsp-enable-folding nil
         lsp-enable-indentation t
         lsp-enable-on-type-formatting t
+        lsp-enable-completion-at-point nil
+        lsp-enable-symbol-highlighting nil
         lsp-idle-delay 0.1
         lsp-keep-workspace-alive nil
         lsp-keymap-prefix "C-c l"
@@ -22,6 +26,7 @@
         lsp-prefer-flymake t
         lsp-print-io nil
         lsp-print-performance nil
+        lsp--on-change-timer 20
         read-process-output-max (* 1024 1024))
   :commands
   (lsp lsp-deferred)
@@ -35,11 +40,11 @@
 
 (leaf lsp-ui
   :init
-  (setq lsp-prefer-flymake t)
-  ;;       lsp-ui-doc-enable nil
-  ;;       lsp-ui-imenu-enable nil
-  ;;       lsp-ui-sideline-enable nil
-  ;;       lsp-enable-symbol-highlighting nil)
+  (setq lsp-prefer-flymake t
+        lsp-ui-sideline-enable nil
+        lsp-ui-imenu-enable nil
+        lsp-ui-doc-enable t
+        lsp-ui-doc-show-with-cursor t)
   :hook
   (lsp-mode-hook . lsp-ui-mode)
   (python-mode-hook . flymake-mode))
