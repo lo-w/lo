@@ -8,7 +8,6 @@
   (setq lsp-auto-guess-root t
         lsp-completion-provider :capf
         lsp-diagnostic-package :none
-
         lsp-enable-snippet t
         lsp-enable-folding nil
         lsp-enable-indentation t
@@ -30,8 +29,6 @@
         lsp-print-performance nil
         lsp-pyls-disable-warning t
         lsp-signature-auto-activate nil
-
-        lsp--on-change-timer 5
         read-process-output-max (* 1024 1024))
   :commands
   (lsp lsp-deferred)
