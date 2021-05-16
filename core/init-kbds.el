@@ -8,6 +8,8 @@
 ;; global key-binding settings for comment (jetbrains style)
 (global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-?") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-M-f") 'forward-list)
+(global-set-key (kbd "C-M-b") 'backward-list)
 
 (leaf crux
   :bind

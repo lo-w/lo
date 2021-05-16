@@ -12,14 +12,14 @@
         lsp-enable-folding nil
         lsp-enable-indentation t
         lsp-enable-on-type-formatting t
-        lsp-enable-completion-at-point nil
-        lsp-enable-symbol-highlighting nil
+        lsp-enable-completion-at-point t
+        lsp-enable-symbol-highlighting t
         lsp-eldoc-hook nil
         lsp-idle-delay 0.1
         lsp-keep-workspace-alive nil
         lsp-keymap-prefix "C-c l"
         lsp-log-io nil
-        lsp-minimum-prefix-length 2
+        lsp-minimum-prefix-length 0
         lsp-modeline-diagnostics-enable t
         lsp-modeline-diagnostics-scope :workspace
         lsp-trace nil

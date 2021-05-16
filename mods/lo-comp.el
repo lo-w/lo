@@ -13,7 +13,7 @@
                 company-dabbrev-ignore-case t
                 company-dabbrev-other-buffers 'all
                 company-require-match nil
-                company-minimum-prefix-length 2
+                company-minimum-prefix-length 1
                 company-show-numbers t
                 company-tooltip-limit 20
                 company-idle-delay 0

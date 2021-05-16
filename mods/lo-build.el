@@ -46,8 +46,8 @@
 (leaf flymake
   :ensure nil
   :hook (prog-mode-hook . flymake-mode)
-  :bind (("C-M-f" . flymake-goto-next-error)
-         ("C-M-b" . flymake-goto-prev-error)))
+  :bind (("C-M-n" . flymake-goto-next-error)
+         ("C-M-p" . flymake-goto-prev-error)))
 
 ;; [built-in] auto remove the useless white spaces
 (leaf simple

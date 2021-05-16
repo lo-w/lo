@@ -19,14 +19,13 @@
 ;; (leaf emacs
 ;;  :init (load-theme 'tango-dark t))
 
-(leaf unicode-fonts
-  :hook
-  (after-init-hook . unicode-fonts-setup))
+(leaf unicode-fonts)
 
 (defun simple-major-mode-name()
   "Return simplifyed major mode name"
   (let* ((major-name (format-mode-line "%m"))
          (replace-table '(Emacs-Lisp "𝝀"
+                                     Dired\ by\ name "𝓓"
                                      Lisp\ Interaction "𝝀"
                                      Py "𝝅"
                                      Shell ">"
@@ -42,8 +41,8 @@
     (if replace-name replace-name major-name)))
 
 (leaf nyan-mode
-  :init
-  :hook (after-init-hook . nyan-mode))
+  :hook
+  (after-init-hook . nyan-mode))
 
 (setq mode-line-align-left
   '(""
