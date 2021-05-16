@@ -21,12 +21,15 @@
                 company-tooltip-align-annotations t
                 company-tooltip-flip-when-above t
                 company-tooltip-offset-display 'scrollbar
-                company-begin-commands '(self-insert-command))
-          (eval-after-load 'company
-                           '(add-to-list 'company-backends
-                           '(company-abbrev company-yasnippet company-capf))))
+                company-begin-commands '(self-insert-command)))
 
 (with-eval-after-load 'company
+  '(add-to-list 'company-backends
+                '(company-abbrev
+                  company-etags
+                  company-keywords
+                  company-yasnippet
+                  company-capf))
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)

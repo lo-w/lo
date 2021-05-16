@@ -13,7 +13,7 @@
         lsp-enable-indentation t
         lsp-enable-on-type-formatting t
         lsp-enable-completion-at-point t
-        lsp-enable-symbol-highlighting t
+        lsp-enable-symbol-highlighting nil
         lsp-eldoc-hook nil
         lsp-idle-delay 0.1
         lsp-keep-workspace-alive nil
