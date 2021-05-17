@@ -33,24 +33,6 @@
 
 (add-to-list 'load-path lo-mods)
 (require 'init-mods)
-
-;; hide some minor modes
-(leaf leaf
-  :diminish
-  auto-revert-mode
-  abbrev-mode
-  company-mode
-  eldoc-mode
-  highlight-parentheses-mode
-  ivy-mode
-  lsp-mode
-  outline-minor-mode
-  page-break-lines-mode
-  projectile-mode
-  smartparens-mode
-  which-key-mode
-  yas-minor-mode)
-
 (provide 'init-pkgs)
 
 ;;; init-pkgs.el ends here

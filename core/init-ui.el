@@ -19,7 +19,9 @@
 ;; (leaf emacs
 ;;  :init (load-theme 'tango-dark t))
 
-(leaf unicode-fonts)
+(leaf unicode-fonts
+  :hook
+  (after-init-hook . unicode-fonts-setup))
 
 (defun simple-major-mode-name()
   "Return simplifyed major mode name"
@@ -135,6 +137,22 @@
 
 ;; transparent background
 (set-frame-parameter (selected-frame) 'alpha '(85 55))
+
+;; hide some minor modes
+(leaf leaf
+  :diminish
+  auto-revert-mode
+  abbrev-mode
+  company-mode
+  eldoc-mode
+  highlight-parentheses-mode
+  ivy-mode
+  lsp-mode
+  outline-minor-mode
+  projectile-mode
+  smartparens-mode
+  which-key-mode
+  yas-minor-mode)
 
 (when (file-exists-p custom-file)
   (load-file custom-file))

@@ -15,13 +15,15 @@
   (setq recentf-max-menu-item 20
         recentf-max-saved-items 25
         recentf-save-file (expand-file-name "recentf" lo-temp)
-        recentf-exclude '("recentf\\'"
-                          "log"
-                          "etc"
-                          "lisp"
+        recentf-exclude '(".*-autoloads\\.el\\'"
                           "COMMIT_EDITMSG\\'"
-                          ".*-autoloads\\.el\\'"
-                          "elpa.*")))
+                          "etc.*"
+                          "elpa.*"
+                          "log"
+                          "lisp"
+                          "recentf\\'"
+                          "TAG.*"
+                          )))
 
 ;; [built-in] dired-x
 ;; we can using C-x C-j to open current dir

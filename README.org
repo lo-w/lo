@@ -3,3 +3,24 @@
 
 * pkgs
   this repo using leaf to manage all the pkgs instead of use-packages
+
+* pre setup
+**  all the icons for dashboard
+  #+begin_src emacs-lisp
+    (all-the-icons-install-fonts)
+  #+end_src
+
+**  unicode fonts for mode line unicode fonts
+  #+begin_src emacs-lisp
+    (unicode-fonts-setup)
+  #+end_src
+
+**  ctags for code complete
+   download ctags from
+   https://github.com/universal-ctags/ctags
+
+   check tags table list value
+   (tags-table-list)
+
+   set tags table list value
+   (visit-tags-table)

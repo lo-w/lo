@@ -10,6 +10,11 @@
         (format "Emacs ready in %.2f seconds with %d garbage collections."
                 (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
 
+(leaf page-break-lines
+  :ensure nil
+  :diminish t
+  :hook (dashboard-mode-hook . page-break-lines-mode))
+
 (leaf dashboard
   :config
   (dashboard-setup-startup-hook)
