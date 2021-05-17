@@ -1,3 +1,4 @@
+
 ;;; comp --- comp
 ;;; Code:
 ;;; Commentary:
@@ -26,6 +27,7 @@
   (eval-after-load 'company
     '(add-to-list 'company-backends
                   '(company-abbrev
+                    company-capf
                     company-etags
                     company-keywords
                     company-yasnippet))))

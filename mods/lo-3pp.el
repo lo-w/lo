@@ -1,10 +1,11 @@
+
 ;;; 3pp --- 3pp
 ;;; Code:
 ;;; Commentary:
 ;;; lo-3pp.el
 
 (leaf restart-emacs
-  :bind ("C-c C-r" . restart-emacs))
+  :bind ("C-c r" . restart-emacs))
 
 ;; Settings for highlight parentheses
 (leaf highlight-parentheses
