@@ -38,7 +38,7 @@
 
 (leaf projectile
   :hook (after-init-hook projectile-mode)
-  :bind ("C-x p" . projectile-command-map)
+  :bind ("C-c p" . projectile-command-map)
   :config
   (setq projectile-cache-file (expand-file-name "projectile.cache" lo-temp)
         projectile-known-projects-file (expand-file-name "projectile-known-projects.eld" lo-temp)))

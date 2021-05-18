@@ -17,10 +17,13 @@
         recentf-save-file (expand-file-name "recentf" lo-temp)
         recentf-exclude '(".*-autoloads\\.el\\'"
                           "COMMIT_EDITMSG\\'"
-                          "etc.*"
-                          "elpa.*"
+                          "etc"
+                          "elpa"
+                          "\\.git*"
                           "log"
                           "lisp"
+                          "\\.po"
+                          "projectile"
                           "recentf\\'"
                           "TAG.*"
                           )))
