@@ -18,13 +18,13 @@
 (add-to-list 'load-path lo-core)
 (add-to-list 'load-path lo-mods)
 
-(dolist (package '( leaf
+(dolist (package '( leaf leaf-keywords
                     crux drag-stuff hungry-delete
                     paren recentf dired dired-x eww eshell simple flymake
                     diminish restart-emacs which-key benchmark-init projectile ace-window magit
                     smartparens rainbow-delimiters highlight-parentheses
                     company company-prescient yasnippet yasnippet-snippets auto-yasnippet
-                    all-the-icons ;dashboard
+                    all-the-icons dashboard
                     ivy counsel swiper
                     lsp-mode lsp-ui lsp-ivy lsp-treemacs helm-lsp dap-mode
                     org org-bullets
@@ -34,13 +34,15 @@
 (require 'const)
 (require 'init-start)
 (require 'init-edit)
+(require 'init-pkgs)
 (require 'lo-build)
 (require 'lo-3pp)
 (require 'lo-comp)
-;; (require 'lo-dash)
+(require 'lo-dash)
 (require 'lo-ivy)
 (require 'lo-lsp)
 (require 'lo-org)
+(require 'lo-prog)
 (require 'init-kbds)
 (require 'init-ui)
 

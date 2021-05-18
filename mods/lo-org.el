@@ -6,6 +6,10 @@
 
 (require 'org-tempo)
 
+(setq-default org-use-sub-superscripts nil)
+(setq org-confirm-babel-evaluate nil
+      org-export-with-section-numbers t)
+
 (leaf org-bullets
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
@@ -25,7 +29,9 @@
 (add-to-list 'org-structure-template-alist '("ja" . "src java"))
 (add-to-list 'org-structure-template-alist '("js" . "src js"))
 
-(setq org-confirm-babel-evaluate nil)
+(set-face-attribute 'org-level-1 nil :height 1.4 :bold t)
+(set-face-attribute 'org-level-2 nil :height 1.2 :bold t)
+(set-face-attribute 'org-level-3 nil :height 1.0 :bold t)
 
 (provide 'lo-org)
 
