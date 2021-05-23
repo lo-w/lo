@@ -7,12 +7,19 @@
   :if (display-graphic-p)
   :config
   ;; Font settings
-  (if *win*
-    (progn
-      (set-face-attribute 'default nil :font "Cascadia Mono 13")
-      (dolist (charset '(kana han symbol cjk-misc bopomofo))
-        (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family "Cascadia Mono" :size 13))))
-    (set-face-attribute 'default nil :font "Source Code Pro for Powerline 11")))
+  (setq fonts '("Cascadia Mono" "微软雅黑"))
+  (setq fsize '(13 18))
+
+  ;; set english font
+  (set-face-attribute 'default nil :font
+                      (format "%s %d" (car fonts) (car fsize)))
+  ;; set chinese charater fonts
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset
+                      (font-spec
+                       :family (cadr fonts)
+                       :size (cadr fsize)))))
 
 (lo-toggle-fullscreen)
 (provide 'lo-win)

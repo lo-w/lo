@@ -34,11 +34,11 @@
 (setq-default python-indent-offset 4
               python-indent-guess-indent-offset-verbose nil)
 
-;; Use black to format the Python code
+;; Use blacken to format the Python code
 (leaf blacken
   :hook ((python-mode . blacken-mode)))
 
-;; Sort the pytho imports
+;; Sort the python imports
 (leaf py-isort
   :init (setq python-sort-imports-on-save t))
 
