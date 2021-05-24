@@ -5,13 +5,12 @@
 
 (require 'lo-build)
 (require 'lo-3pp)
-(require 'lo-comp)
-(require 'lo-dash)
 (require 'lo-ivy)
+(require 'lo-comp)
 (require 'lo-lsp)
 (require 'lo-org)
 (require 'lo-prog)
+(require 'lo-dash)
 
 (provide 'init-mods)
-
 ;;; init-mods.el ends here

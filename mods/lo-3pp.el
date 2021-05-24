@@ -47,11 +47,10 @@
   :bind
   (("M-o" . ace-window)))
 
-(leaf magit)
-
-(leaf neotree
-  :bind
-  ("C-c b" . neotree-toggle))
+;(leaf magit)
+;(leaf neotree
+;  :bind
+;  ("C-c b" . neotree-toggle))
 
 (leaf keyfreq
   :init

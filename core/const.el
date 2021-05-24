@@ -84,13 +84,15 @@
   (require 'init-start)
   (require 'init-edit)
   (require 'init-pkgs)
-  (require 'init-kbds)
-  (require 'init-ui))
+  (require 'init-kbds))
 
 (defun lo-dump ()
   (global-font-lock-mode)
   (transient-mark-mode)
   (set-frame-parameter (selected-frame) 'alpha '(85 55)))
+
+(setq fonts '("Cascadia Mono" "Cascadia Mono"))
+(setq fsize '(13 13))
 
 (provide 'const)
 

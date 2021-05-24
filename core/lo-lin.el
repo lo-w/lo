@@ -4,7 +4,6 @@
 ;;; lo-lin.el
 
 
-(lo-toggle-fullscreen)
 
 (provide 'lo-lin)
 

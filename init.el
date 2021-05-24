@@ -11,14 +11,12 @@
 (require 'const)
 
 (if lo-dumped
-  (progn 
+  (progn
     (setq load-path lo-dumped-load-path)
     (add-to-list 'load-path lo-core)
     (lo-dump))
   (lo-init))
 
-(when *win* (require 'lo-win))
-(when *lin* (require 'lo-lin))
-(when *mac* (require 'lo-mac))
+(require 'init-ui)
 
 ;;; init.el ends here

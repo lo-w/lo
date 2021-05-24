@@ -51,9 +51,7 @@
   (leaf yasnippet-snippets
     :after yasnippet)
   (leaf auto-yasnippet
-    :bind (("C-o" . aya-open-line)
-           ("H-w" . aya-create)
-           ("H-y" . aya-expand)))
+    :bind (("C-o" . aya-open-line)))
   :hook
   (after-init-hook . yas-global-mode))
 

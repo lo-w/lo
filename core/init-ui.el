@@ -129,7 +129,6 @@
                mode-line-align-right))
 
 ;; (set-face-background 'mode-line "#AAAAAA")
-
 ;; (setq whitespace-line-column 200)
 ;; (global-whitespace-mode t)
 (global-hl-line-mode 1)
@@ -153,6 +152,26 @@
   smartparens-mode
   which-key-mode
   yas-minor-mode)
+
+(when *win* (require 'lo-win))
+(when *lin* (require 'lo-lin))
+(when *mac* (require 'lo-mac))
+
+(leaf emacs
+  :if (display-graphic-p)
+  :config
+  ;; set english font
+  (set-face-attribute 'default nil :font
+                      (format "%s %d" (car fonts) (car fsize)))
+  ;; set chinese charater fonts
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset
+                      (font-spec
+                       :family (cadr fonts)
+                       :size (cadr fsize)))))
+
+(lo-toggle-fullscreen)
 
 (when (file-exists-p custom-file)
   (load-file custom-file))
