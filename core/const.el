@@ -91,8 +91,8 @@
   (transient-mark-mode)
   (set-frame-parameter (selected-frame) 'alpha '(85 55)))
 
-(setq fonts '("Cascadia Mono" "Cascadia Mono"))
-(setq fsize '(13 13))
+(setq fonts nil
+      fsize nil)
 
 (provide 'const)
 

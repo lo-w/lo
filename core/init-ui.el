@@ -158,7 +158,7 @@
 (when *mac* (require 'lo-mac))
 
 (leaf emacs
-  :if (display-graphic-p)
+  :if (and 'display-graphic-p fonts fsize)
   :config
   ;; set english font
   (set-face-attribute 'default nil :font
