@@ -10,15 +10,6 @@
     sml/theme 'respectful)
   (sml/setup))
 
-(leaf emacs
-  :init (load-theme 'wheatgrass t))
-
-;; (leaf gruvbox-theme
-;;  :init (load-theme 'gruvbox-dark-soft t))
-
-;; (leaf emacs
-;;  :init (load-theme 'tango-dark t))
-
 (leaf unicode-fonts
   :hook
   (after-init-hook . unicode-fonts-setup))
@@ -135,7 +126,7 @@
 (set-face-background hl-line-face "gray13")
 
 ;; transparent background
-(set-frame-parameter (selected-frame) 'alpha '(85 55))
+(set-frame-parameter (selected-frame) 'alpha '(95 55))
 
 ;; hide some minor modes
 (leaf leaf
@@ -171,10 +162,22 @@
                        :family (cadr fonts)
                        :size (cadr fsize)))))
 
-(lo-toggle-fullscreen)
+;; load theme and full size screen
+(if *mac*
+    (progn
+      (leaf solarized-theme
+        :init (load-theme 'solarized-dark t))
+      (toggle-frame-fullscreen))
+  (progn
+    (leaf emacs
+      :init (load-theme 'wheatgrass t))
+    (lo-toggle-fullscreen)))
 
 (when (file-exists-p custom-file)
   (load-file custom-file))
+
+;; (leaf emacs
+;;  :init (load-theme 'tango-dark t))
 
 (provide 'init-ui)
 

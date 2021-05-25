@@ -47,7 +47,7 @@
   :bind
   (("M-o" . ace-window)))
 
-;(leaf magit)
+(leaf magit)
 ;(leaf neotree
 ;  :bind
 ;  ("C-c b" . neotree-toggle))
