@@ -17,6 +17,14 @@
     (lo-dump))
   (lo-init))
 
-(require 'init-ui)
+(leaf emacs
+  :if (display-graphic-p)
+  :config
+  (require 'lo-comp)
+  (require 'lo-lsp)
+  (require 'lo-org)
+  (require 'lo-prog)
+  (require 'lo-dash)
+  (require 'init-ui))
 
 ;;; init.el ends here

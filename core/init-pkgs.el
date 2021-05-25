@@ -32,7 +32,12 @@
     (leaf-keywords-init))
 
 (add-to-list 'load-path lo-mods)
-(require 'init-mods)
+
+;; add termial required pkgs
+(require 'lo-build)
+(require 'lo-3pp)
+(require 'lo-ivy)
+
 (provide 'init-pkgs)
 
 ;;; init-pkgs.el ends here
