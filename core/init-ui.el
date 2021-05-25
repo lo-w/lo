@@ -126,7 +126,7 @@
 (set-face-background hl-line-face "gray13")
 
 ;; transparent background
-(set-frame-parameter (selected-frame) 'alpha '(95 55))
+(set-frame-parameter (selected-frame) 'alpha '(90 55))
 
 ;; hide some minor modes
 (leaf leaf

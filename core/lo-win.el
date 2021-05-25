@@ -4,8 +4,8 @@
 ;;; lo-win.el
 
 ;; Font settings
-(setq fonts '("Cascadia Mono" "微软雅黑"))
-(setq fsize '(13 18))
+(setq fonts '("Cascadia Mono" "DengXian bold")
+      fsize '(13 14))
 
 (provide 'lo-win)
 

@@ -4,10 +4,13 @@
 ;;; lo-mac.el
 
 
+(setq fonts '("Monaco" "Monaco")
+      fsize '(17 20))
+
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'none)
 
-(global-set-key (kbd "<F12>") 'toggle-frame-fullscreen)
+(global-set-key (kbd "<f12>") 'toggle-frame-fullscreen)
 
 (provide 'lo-mac)
 
