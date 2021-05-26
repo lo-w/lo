@@ -166,12 +166,12 @@
 (if *mac*
     (progn
       (leaf solarized-theme
-        :init (load-theme 'solarized-dark t))
-      (toggle-frame-fullscreen))
+        :init (load-theme 'solarized-dark t)))
   (progn
     (leaf emacs
-      :init (load-theme 'wheatgrass t))
-    (lo-toggle-fullscreen)))
+      :init (load-theme 'wheatgrass t))))
+
+(toggle-frame-fullscreen)
 
 (when (file-exists-p custom-file)
   (load-file custom-file))

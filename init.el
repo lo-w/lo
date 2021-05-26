@@ -17,10 +17,7 @@
     (lo-dump))
   (lo-init))
 
-(leaf emacs
-  :if (display-graphic-p)
-  :config
-  (require 'lo-comp)
+(when 'display-graphic-p
   (require 'lo-lsp)
   (require 'lo-org)
   (require 'lo-prog)

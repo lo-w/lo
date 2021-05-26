@@ -37,6 +37,7 @@
 (require 'lo-build)
 (require 'lo-3pp)
 (require 'lo-ivy)
+(require 'lo-comp)
 
 (provide 'init-pkgs)
 

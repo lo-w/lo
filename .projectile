@@ -1,3 +1,5 @@
 -.*
-+core
-+mods
+-temp
+-elpa
+-server
+-transient
