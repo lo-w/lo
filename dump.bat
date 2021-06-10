@@ -15,7 +15,7 @@ goto dump
 echo dump the emacs
 
 set D_HOME=%cd%
-cd  ../../emacs*/bin
+cd  ../emacs*/bin
 set E_HOME=%cd%
 
 %E_HOME%\emacs.exe --batch -l %D_HOME%\dump.el

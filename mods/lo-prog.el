@@ -19,7 +19,15 @@
 (leaf go-mode)
 
 ;; jave
-;; (leaf java-mode)
+(leaf lsp-java
+  :config
+  (setq-default lsp-java-server-install-dir (expand-file-name "eclipse.jdt.ls" lo-temp))
+  (setq lsp-java-server-install-dir (expand-file-name "eclipse.jdt.ls" lo-temp))
+  (setq lsp-java-format-settings-profile "JavaAlgoConventions")
+  (setq lsp-java-java-path "C:/others/dev/java/11/bin/java.exe")
+  (setq lsp-java-configuration-runtimes '[
+                                    (:name "JavaSE-1.8" :path "C:/others/dev/java/8/bin")
+                                    (:name "JavaSE-11" :path "C:/others/dev/java/11/bin" :default t)]))
 
 ;; python
 (leaf python-mode

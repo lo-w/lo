@@ -1,3 +1,4 @@
+.cache
 var
 temp
 auto-save-list
@@ -7,3 +8,5 @@ server
 transient
 *lsp-session*
 *dap*
+eclipse*
+workspace
