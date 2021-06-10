@@ -14,6 +14,10 @@
 (defvar lo-mods (expand-file-name "mods" lo-dir))
 (defvar lo-temp (expand-file-name "temp" lo-dir))
 
+(defvar J8PATH (getenv "J8_HOME"))
+(defvar J11PATH (getenv "J11_HOME"))
+(defvar JPATH (expand-file-name "bin/java.exe" J11PATH))
+
 ; customer
 (setq custom-file
       (expand-file-name "custom.el" lo-temp))

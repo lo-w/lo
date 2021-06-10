@@ -20,14 +20,17 @@
 
 ;; jave
 (leaf lsp-java
+  :if (and J8PATH J11PATH)
   :config
   (setq-default lsp-java-server-install-dir (expand-file-name "eclipse.jdt.ls" lo-temp))
   (setq lsp-java-server-install-dir (expand-file-name "eclipse.jdt.ls" lo-temp))
   (setq lsp-java-format-settings-profile "JavaAlgoConventions")
-  (setq lsp-java-java-path "C:/others/dev/java/11/bin/java.exe")
-  (setq lsp-java-configuration-runtimes '[
-                                    (:name "JavaSE-1.8" :path "C:/others/dev/java/8/bin")
-                                    (:name "JavaSE-11" :path "C:/others/dev/java/11/bin" :default t)]))
+  (setq lsp-java-java-path JPATH)
+  (setq lsp-java-configuration-runtimes
+        `[
+          (:name "JavaSE-1.8" :path ,J8PATH)
+          (:name "JavaSE-11" :path ,J11PATH :default t)
+          ]))
 
 ;; python
 (leaf python-mode
