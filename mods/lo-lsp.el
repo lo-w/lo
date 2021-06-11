@@ -48,6 +48,12 @@
         lsp-ui-doc-enable t
         lsp-ui-doc-position 'at-point
         lsp-ui-doc-show-with-cursor t)
+  :bind
+  (:lsp-ui-mode-map
+    ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+    ([remap xref-find-references] . lsp-ui-peek-find-references)
+    ("C-c u" . lsp-ui-imenu)
+    ("M-i" . lsp-ui-doc-focus-frame))
   :hook
   (lsp-mode-hook . lsp-ui-mode)
   (python-mode-hook . flymake-mode))

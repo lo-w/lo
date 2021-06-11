@@ -20,13 +20,15 @@
 
 ;; jave
 (leaf lsp-java
-  :if (and J8PATH J11PATH)
+  :after lsp-mode
+  :if (and J8PATH J11PATH (executable-find "mvn"))
   :config
   (setq-default lsp-java-server-install-dir (expand-file-name "eclipse.jdt.ls" lo-temp))
   (setq lsp-java-server-install-dir (expand-file-name "eclipse.jdt.ls" lo-temp))
+  (setq lsp-java-workspace-dir (expand-file-name "workspace" lo-temp))
   (setq lsp-java-format-settings-profile "JavaAlgoConventions")
-  (setq lsp-java-java-path JPATH)
-  (setq lsp-java-configuration-runtimes
+  (setq lsp-java-java-path JPATH
+        lsp-java-configuration-runtimes
         `[
           (:name "JavaSE-1.8" :path ,J8PATH)
           (:name "JavaSE-11" :path ,J11PATH :default t)

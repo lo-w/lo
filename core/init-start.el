@@ -17,8 +17,9 @@
 ;; next line
 ;(set-fringe-mode -1)
 
-; GC setting 50MB of allocated data (the default is on every 0.76MB)
-(setq gc-cons-threshold 50000000)
+; GC setting 100MB of allocated data (the default is on every 0.76MB)
+(setq gc-cons-threshold (* 100 1024 1024))
+(setq read-process-output-max (* 3 1024 1024))
 
 ;; warn when opening files bigger than 200MB
 (setq large-file-warning-threshold 200000000)
