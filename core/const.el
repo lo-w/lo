@@ -22,6 +22,9 @@
 (setq custom-file
       (expand-file-name "custom.el" lo-temp))
 
+(setq pcache-directory (expand-file-name "pcache/" lo-temp))
+(setq transient-history-file (expand-file-name "transient/history.el" lo-temp))
+
 ;; hide cl pkg warning
 (setq byte-compile-warnings '(cl-functions))
 

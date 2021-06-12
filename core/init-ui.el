@@ -97,7 +97,8 @@
        (:eval minor-mode-alist)
        ;; nyan mode
        " ["
-       (:eval (when nyan-mode (list (nyan-create))))
+       (:eval (if 'display-graphic-p
+                  (when nyan-mode (list (nyan-create)))))
        "] "
        ))
 
