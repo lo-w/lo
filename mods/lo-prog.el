@@ -9,6 +9,8 @@
 ;; (leaf xml-mode)
 
 ;; for language
+;;(autoload 'gid "idutils" nil t)
+
 ;; js
 (leaf js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'"    . js2-mode))
@@ -18,7 +20,7 @@
 ;; go
 (leaf go-mode)
 
-;; jave
+;; java
 (leaf lsp-java
   :after lsp-mode
   :if (and J8PATH J11PATH (executable-find "mvn"))

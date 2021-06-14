@@ -21,6 +21,7 @@
                                      Dired\ by\ name "𝓓"
                                      Lisp\ Interaction "𝝀"
                                      Py "𝝅"
+                                     Python "𝝅"
                                      Shell ">"
                                      Makrdown "𝓜"
                                      GFM "𝓜"

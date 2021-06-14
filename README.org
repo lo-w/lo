@@ -5,22 +5,42 @@
   this repo using leaf to manage all the pkgs instead of use-packages
 
 * pre setup
-**  all the icons for dashboard
+** some settings for windows
+   set java running(for lsp-java)/linux find script path(for emacs xref)
+   #+begin_src emacs-lisp
+     (defvar JPATH (expand-file-name "bin/java.exe" J11PATH))
+     (defvar FPATH (expand-file-name "bin/find.exe" (getenv "GIT_HOME")))
+   #+end_src
+
+** all the icons for dashboard
   #+begin_src emacs-lisp
     (all-the-icons-install-fonts)
   #+end_src
 
-**  unicode fonts for mode line unicode fonts
+** unicode fonts for mode line unicode fonts
   #+begin_src emacs-lisp
     (unicode-fonts-setup)
   #+end_src
 
-**  ctags for code complete
-   download ctags from
-   https://github.com/universal-ctags/ctags
+** ctags for code complete
+   in the project root dir run the following commands
+   #+begin_src shell
+     > find . -type f -name '*.py' | grep -iv test | xargs etags -a
+   #+end_src
 
    check tags table list value
    (tags-table-list)
 
    set tags table list value
    (visit-tags-table)
+
+** settings for java
+   settings for lsp-java
+   #+begin_src emacs-lisp
+     (defvar J8PATH (getenv "J8_HOME"))
+     (defvar J11PATH (getenv "J11_HOME"))
+   #+end_src
+
+** install ripgrep
+   download coresponded version
+   https://github.com/BurntSushi/ripgrep/releases

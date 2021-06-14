@@ -16,7 +16,11 @@
 
 (defvar J8PATH (getenv "J8_HOME"))
 (defvar J11PATH (getenv "J11_HOME"))
-(defvar JPATH (expand-file-name "bin/java.exe" J11PATH))
+(defvar JPATH (expand-file-name "bin/java" J11PATH))
+
+(when *win*
+  (defvar JPATH (expand-file-name "bin/java.exe" J11PATH))
+  (defvar FPATH (expand-file-name "bin/find.exe" (getenv "GIT_HOME"))))
 
 ; customer
 (setq custom-file

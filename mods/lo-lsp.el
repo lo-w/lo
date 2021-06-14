@@ -58,6 +58,7 @@
   (lsp-mode-hook . lsp-ui-mode)
   (python-mode-hook . flymake-mode))
 
+(leaf helm-lsp :after lsp-mode :commands helm-lsp-workspace-symbol)
 (leaf lsp-ivy :commands lsp-ivy-workspace-symbol)
 (leaf lsp-treemacs :commands lsp-treemacs-errors-list)
 
@@ -66,7 +67,6 @@
 ;;   :config
 ;;   (push 'company-lsp company-backends))
 
-(leaf helm-lsp :after lsp-mode :commands helm-lsp-workspace-symbol)
 (leaf dap-mode)
 
 (provide 'lo-lsp)
