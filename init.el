@@ -18,8 +18,8 @@
   (lo-init))
 
 (when 'display-graphic-p
-  (require 'lo-lsp)
   (require 'lo-org)
+  (require 'lo-lsp)
   (require 'lo-prog)
   (require 'lo-dash)
   (require 'init-ui))
