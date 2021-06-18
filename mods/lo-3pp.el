@@ -23,6 +23,7 @@
   ("C-M-<backspace>" . backward-kill-sexp)
   :config
   (sp-pair "'" nil :actions :rem)
+  (sp-pair "`" nil :actions :rem)
   (smartparens-global-mode t))
 
 (leaf rainbow-delimiters

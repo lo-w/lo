@@ -45,9 +45,7 @@
 ;; Settings for yasnippet
 (leaf yasnippet
   :config
-  (setq yas-snippet-dirs '())
-  (add-to-list 'yas-snippet-dirs
-               (concat (file-name-as-directory lo-temp) "snippets"))
+  (setq yas-snippet-dirs (list (concat (file-name-as-directory lo-temp) "snippets")))
   (leaf yasnippet-snippets
     :after yasnippet)
   (leaf auto-yasnippet

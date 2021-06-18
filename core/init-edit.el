@@ -13,9 +13,11 @@
 ;; blink the cursor
 (blink-cursor-mode 1)
 
-(setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
-(setq-default tab-width 4)            ;; but maintain correct appearance
+;; don't use tabs to indent but maintain correct appearance
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
+;; replace characters when words selected
 (delete-selection-mode 1)
 
 ;; store all backup and autosave files in the tmp dir
@@ -29,6 +31,7 @@
       `((".*" . ,temporary-file-directory)))
 (setq undo-tree-auto-save-history t)
 
+;; enable up/lower case
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 

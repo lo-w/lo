@@ -22,14 +22,14 @@
   (defvar FPATH (expand-file-name "usr/bin/find.exe" (getenv "GIT_HOME"))))
 
 ; customer
-(setq custom-file
-      (expand-file-name "custom.el" lo-temp))
-
+(setq custom-file (expand-file-name "custom.el" lo-temp))
+(setq lsp-session-file (expand-file-name ".lsp-session-v1" lo-temp))
 (setq pcache-directory (expand-file-name "pcache/" lo-temp))
+(setq server-auth-dir (expand-file-name "server/" lo-temp))
 (setq transient-history-file (expand-file-name "transient/history.el" lo-temp))
 
 ;; hide cl pkg warning
-(setq byte-compile-warnings '(cl-functions))
+;;(setq byte-compile-warnings '(cl-functions))
 
 ;; Settings for backup files
 (setq make-backup-files nil
@@ -37,6 +37,7 @@
 
 (setq auto-save-list-file-prefix nil)
 
+;; mode line settings
 (defconst RIGHT_PADDING 1)
 
 (defun reserve-left/middle ()
